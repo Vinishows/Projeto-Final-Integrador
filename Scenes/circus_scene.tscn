@@ -21,7 +21,7 @@ glow_enabled = true
 environment = SubResource("Environment_6m7dr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.44997, -0.71165, -0.53952, -0.712213, -0.0785111, 0.697559, -0.538776, 0.698134, -0.471519, -8.18649, 8.73942, -8.04485)
+transform = Transform3D(-0.44997, -0.71165, -0.53952, -0.712213, -0.0785111, 0.697559, -0.538776, 0.698134, -0.471519, -8.18649, 8.73942, -6.10699)
 shadow_enabled = true
 
 [node name="floor" type="CSGBox3D" parent="."]
@@ -60,7 +60,7 @@ operation = 2
 sides = 22
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.268529, 0, 0, 0, 1, 0, 0, 0, 1, -2.01419, 0.688473, 3.20521)
+transform = Transform3D(0.268529, -4.30343e-05, 0.000126421, 1.1556e-05, 1, -0.000161341, -3.39476e-05, 0.000161341, 1, -2.01419, 0.688473, 3.20521)
 size = Vector3(1, 1.22998, 2.74463)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]

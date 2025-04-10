@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://5kjpm3gd0c2v"]
+
+[ext_resource type="Script" uid="uid://6aiihqgo0l6a" path="res://Scripts/cutscenes.gd" id="1_84dwc"]
+[ext_resource type="Texture2D" uid="uid://bnni2idha8use" path="res://icon.svg" id="2_4pwd1"]
+
+[sub_resource type="Animation" id="Animation_4pwd1"]
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("q1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-168, 128), Vector2(256, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("q2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1352, 128), Vector2(816, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("q3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-176, 552), Vector2(264, 496)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("q4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1344, 488), Vector2(824, 496)]
+}
+
+[sub_resource type="Animation" id="Animation_84dwc"]
+resource_name = "intro"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("q1:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(128, -0.25, 0, 0.25, 0, 128, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pwd1"]
+_data = {
+&"RESET": SubResource("Animation_4pwd1"),
+&"intro": SubResource("Animation_84dwc")
+}
+
+[node name="Cutscenes" type="Node2D"]
+script = ExtResource("1_84dwc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4pwd1")
+}
+autoplay = "RESET"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+
+[node name="q1" type="Sprite2D" parent="."]
+position = Vector2(-168, 128)
+skew = -0.586431
+texture = ExtResource("2_4pwd1")
+
+[node name="q2" type="Sprite2D" parent="."]
+position = Vector2(1352, 128)
+skew = -0.39619
+texture = ExtResource("2_4pwd1")
+flip_v = true
+
+[node name="q3" type="Sprite2D" parent="."]
+position = Vector2(-176, 552)
+rotation = 0.26529
+texture = ExtResource("2_4pwd1")
+
+[node name="q4" type="Sprite2D" parent="."]
+position = Vector2(1344, 488)
+rotation = -2.36492
+texture = ExtResource("2_4pwd1")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

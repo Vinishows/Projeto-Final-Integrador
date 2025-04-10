@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhytvioqawg3h"]
+
+[ext_resource type="Script" uid="uid://byow3c13w6isn" path="res://Scripts/menu.gd" id="2_0gf73"]
+[ext_resource type="Texture2D" uid="uid://bnni2idha8use" path="res://icon.svg" id="2_xhh6f"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_0gf73")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xhh6f")
+
+[node name="QuitGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.5
+offset_top = -168.0
+offset_right = 126.5
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+toggle_mode = true
+text = "Sair do Jogo"
+
+[node name="StartGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = 80.0
+offset_right = 126.5
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+text = "Iniciar Jogo"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+texture = ExtResource("2_xhh6f")
+centered = false
+
+[connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]

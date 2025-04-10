@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ivbpwddbmld2"]
+
+[ext_resource type="Shader" uid="uid://d233hba4ni3ni" path="res://Assets/Shaders/BlurShader.gdshader" id="1_26dfs"]
+
+[resource]
+shader = ExtResource("1_26dfs")
+shader_parameter/amount = 0.0

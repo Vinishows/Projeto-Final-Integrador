@@ -35,4 +35,3 @@ func _physics_process(delta: float) -> void:
 		$sprite.play("idle_" + last_direction)
 
 	move_and_slide()
-	print(is_on_floor())
