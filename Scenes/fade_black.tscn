@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp4g7hpkpcgj"]
+
+[ext_resource type="Script" uid="uid://b225crosl7gb0" path="res://Scripts/fade_black.gd" id="1_ib1he"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ib1he")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
