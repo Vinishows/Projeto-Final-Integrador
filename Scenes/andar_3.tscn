@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://q6j16i8ngkpm"]
+[gd_scene load_steps=30 format=3 uid="uid://q6j16i8ngkpm"]
 
 [ext_resource type="PackedScene" uid="uid://dv1x7rlj4fj77" path="res://Assets/Art/3D/door/door_frame.glb" id="1_1dt2y"]
 [ext_resource type="Texture2D" uid="uid://duxosickcbm5c" path="res://Assets/Art/3D/sky_background/abstract-art-landscape-city-cityscape-textured-painting-city-nights-ii-by-madart-megan-duncanson.jpg" id="1_8a0x4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Scenes/proto_controller.tscn" id="2_ye382"]
 [ext_resource type="Texture2D" uid="uid://dmjwdkhgp2kxq" path="res://Assets/Art/3D/corredor/textures/carpet_metallicRoughness.png" id="3_byx7a"]
 [ext_resource type="Texture2D" uid="uid://bkppii2embtf0" path="res://Assets/Art/3D/corredor/textures/carpet_normal.jpeg" id="4_awgiv"]
+[ext_resource type="PackedScene" uid="uid://bqg7lv6nw04n8" path="res://Scenes/door.tscn" id="4_n2ni8"]
 [ext_resource type="Texture2D" uid="uid://cbarf88omhik2" path="res://Assets/Art/3D/corredor/textures/Wallpaper_baseColor.jpeg" id="5_kc46q"]
 [ext_resource type="Texture2D" uid="uid://dcpr77mvffjyy" path="res://Assets/Art/3D/corredor/textures/Wallpaper_normal.png" id="6_0vyto"]
 [ext_resource type="Texture2D" uid="uid://dr6fxnwv6a5yg" path="res://Assets/Art/3D/corredor/textures/plaster_baseColor.jpeg" id="7_8a0x4"]
@@ -18,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://bxdd0tyi31oyo" path="res://Assets/Art/3D/wall_details/Untitled.glb" id="15_0vyto"]
 [ext_resource type="PackedScene" uid="uid://cl4gtqev6pshs" path="res://Assets/Art/3D/lights/Untitled.glb" id="15_byx7a"]
 [ext_resource type="PackedScene" uid="uid://lvx3wrfrn5u2" path="res://Assets/Art/3D/wall_details/painting.glb" id="18_8a0x4"]
-[ext_resource type="PackedScene" uid="uid://s2vayt37sxo0" path="res://Assets/Art/3D/wall_details/stairway_door.glb" id="19_8a0x4"]
+[ext_resource type="PackedScene" uid="uid://oierteb3jjya" path="res://Scenes/staircase_exit_door.tscn" id="19_4jr0e"]
+[ext_resource type="PackedScene" uid="uid://r5mwr68nvukl" path="res://Scenes/staircase.tscn" id="21_4jr0e"]
+[ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="21_bhui0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n2ni8"]
 panorama = ExtResource("1_8a0x4")
@@ -81,7 +84,15 @@ environment = SubResource("Environment_6m7dr")
 transform = Transform3D(-0.265473, 0.950047, -0.164121, -0.712213, -0.0785111, 0.697559, 0.649828, 0.302072, 0.697478, -2.59347, 8.73942, 17.6799)
 shadow_enabled = true
 
+[node name="door_frame3" parent="." instance=ExtResource("1_1dt2y")]
+transform = Transform3D(0.0449028, 0, 0, 0, 0.046, 0, 0, 0, 0.046, -8.00651, 0.512097, 8.07275)
+
+[node name="door3" parent="." groups=["doors"] instance=ExtResource("4_n2ni8")]
+transform = Transform3D(0.0494679, 0, 0, 0, 0.0494679, 0, 0, 0, 0.0494679, -7.95293, 0.283809, 8.05341)
+door_id = 2
+
 [node name="floor_structure" type="CSGCombiner3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1.94134, 0, 0, 0, 1.94134, 0, 0, 0, 1.94134, 0.0220727, 0.283809, 1.57083)
 use_collision = true
 
@@ -91,8 +102,12 @@ transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, 0.291899
 [node name="door_frame2" parent="floor_structure" instance=ExtResource("1_1dt2y")]
 transform = Transform3D(0.0228549, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -1.9135, 0.117593, 3.34919)
 
-[node name="door_frame3" parent="floor_structure" instance=ExtResource("1_1dt2y")]
-transform = Transform3D(0.0231298, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -4.13559, 0.117593, 3.34919)
+[node name="door" parent="floor_structure" groups=["doors"] instance=ExtResource("4_n2ni8")]
+transform = Transform3D(0.0254813, 0, 0, 0, 0.0254813, 0, 0, 0, 0.0254813, 0.328053, 0, 3.33923)
+
+[node name="door2" parent="floor_structure" groups=["doors"] instance=ExtResource("4_n2ni8")]
+transform = Transform3D(0.0254813, 0, 0, 0, 0.0254813, 0, 0, 0, 0.0254813, -1.88669, 0, 3.33923)
+door_id = 1
 
 [node name="wall2" type="CSGBox3D" parent="floor_structure"]
 transform = Transform3D(1.8991, 0, 0, 0, 0.838806, 0, 0, 0, 0.0999999, -4.52567, 0.437519, 3.36146)
@@ -219,14 +234,23 @@ use_collision = true
 size = Vector3(1.3418, 1, 0.237823)
 material = SubResource("StandardMaterial3D_hepyh")
 
+[node name="elevator" parent="floor_structure" instance=ExtResource("1_wy8hy")]
+transform = Transform3D(-6.43622e-10, 0, 0.013262, 0, 0.013262, 0, -0.0147243, 0, -5.79703e-10, 4.4738, -9.99421e-05, 4.57461)
+
+[node name="painting" parent="floor_structure" instance=ExtResource("18_8a0x4")]
+transform = Transform3D(-6.74714e-10, 0, 0.0154357, 0, 0.0154357, 0, -0.0154357, 0, -6.74714e-10, 2.12846, 1.43845, 3.31218)
+
+[node name="staircase_exitDoor" parent="floor_structure" instance=ExtResource("19_4jr0e")]
+transform = Transform3D(-4.51976e-08, 0, -1.034, 0, 1.034, 0, 1.034, 0, -4.51976e-08, -5.81665, 0, 4.34656)
+
 [node name="ProtoController" parent="." instance=ExtResource("2_ye382")]
-transform = Transform3D(-0.0160567, 0, 0.999871, 0, 1, 0, -0.999871, 0, -0.0160567, 9.30001, 0.497385, 10.1383)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.90445, 0.67897, 10.0604)
 
-[node name="elevator" parent="." instance=ExtResource("1_wy8hy")]
-transform = Transform3D(-1.24949e-09, 0, 0.0257461, 0, 0.0257461, 0, -0.0285849, 0, -1.1254e-09, 8.70724, 0.283615, 10.4517)
+[node name="staircase" parent="." instance=ExtResource("21_4jr0e")]
+unique_name_in_owner = true
+transform = Transform3D(1.85221, 0, 0, 0, 1.85221, 0, 0, 0, 1.85221, -10.1942, 2.26094, 4.38049)
 
-[node name="painting" parent="." instance=ExtResource("18_8a0x4")]
-transform = Transform3D(-1.30985e-09, 0, 0.0299659, 0, 0.0299659, 0, -0.0299659, 0, -1.30985e-09, 4.15414, 3.07633, 8.00089)
+[node name="staircase_exitDoor" parent="." instance=ExtResource("19_4jr0e")]
+transform = Transform3D(-8.38259e-08, 0, 1.91771, 0, 1.91771, 0, -1.91771, 0, -8.38259e-08, -7.0991, 9.11944, 1.08122)
 
-[node name="stairway_door" parent="." instance=ExtResource("19_8a0x4")]
-transform = Transform3D(-8.77465e-08, 0, 2.0074, 0, 2.0074, 0, -2.0074, 0, -8.77465e-08, -11.3004, 0.427378, 9.89546)
+[node name="CanvasLayer" parent="." instance=ExtResource("21_bhui0")]

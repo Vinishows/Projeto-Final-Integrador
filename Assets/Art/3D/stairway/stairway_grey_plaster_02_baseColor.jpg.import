@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://kjsw0of7frug"
+path.s3tc="res://.godot/imported/stairway_grey_plaster_02_baseColor.jpg-b48d92e14ebae208c8324c33fdd73054.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "ab80a8831d521fb2efdb24ae5d1f41b5"
+}
+
+[deps]
+
+source_file="res://Assets/Art/3D/stairway/stairway_grey_plaster_02_baseColor.jpg"
+dest_files=["res://.godot/imported/stairway_grey_plaster_02_baseColor.jpg-b48d92e14ebae208c8324c33fdd73054.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

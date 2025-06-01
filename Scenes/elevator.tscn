@@ -60,11 +60,7 @@ script = ExtResource("1_cyba6")
 [node name="elevator" parent="." instance=ExtResource("1_7i85y")]
 
 [node name="coll_chao" type="CollisionShape3D" parent="elevator"]
-transform = Transform3D(20.2181, 0, 0, 0, 20.2181, 0, 0, 0, 20.2181, 24.3915, -3.77423, 2.31376)
-shape = SubResource("BoxShape3D_jd6vs")
-
-[node name="coll_chao2" type="CollisionShape3D" parent="elevator"]
-transform = Transform3D(20.2181, 0, 0, 0, 20.2181, 0, 0, 0, 20.2181, 24.3915, 176.18, 2.31376)
+transform = Transform3D(20.2181, 0, 0, 0, 20.2181, 0, 0, 0, 20.2181, 24.3915, -0.53579, 2.31376)
 shape = SubResource("BoxShape3D_jd6vs")
 
 [node name="coll_direita" type="CollisionShape3D" parent="elevator"]

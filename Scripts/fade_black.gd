@@ -2,6 +2,10 @@ extends CanvasLayer
 
 @onready var fade_rect = $ColorRect
 
+func _ready():
+	fade_rect.modulate.a = 0.0
+	fade_rect.visible = false
+
 func fade_to_black():
 	fade_rect.modulate.a = 0
 	fade_rect.visible = true
