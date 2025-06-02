@@ -4,6 +4,8 @@ extends CharacterBody3D
 
 @export var jump_velocity : float = 4.5
 
+var last_direction: String = "right"
+
 const SPEED = 5.0
 
 func _physics_process(delta: float) -> void:
@@ -16,21 +18,35 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 		if direction.x > 0:
+			last_direction = "right"
 			sprite.flip_h = false
 			sprite.play("walk")
 		elif velocity.x < 0:
+			last_direction = "left"
 			sprite.flip_h = true
 			sprite.play("walk")
 		elif velocity.z < 0:
+			last_direction = "up"
 			sprite.play("up")
 		else:
+			last_direction = "down"
 			sprite.play("down")
 			
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		sprite.stop()
+		match last_direction:
+			"right":
+				sprite.play("idle-walk")
+				sprite.flip_h = false
+			"left":
+				sprite.play("idle-walk")
+				sprite.flip_h = true
+			"down":
+				sprite.play("idle-down")
+			"up":
+				sprite.play("idle-up")
 		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 				velocity.y = jump_velocity

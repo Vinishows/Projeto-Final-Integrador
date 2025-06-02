@@ -269,6 +269,3 @@ transform = Transform3D(-4.51976e-08, 0, -1.034, 0, 1.034, 0, 1.034, 0, -4.51976
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 9.52825, 1.83956, 9.85204)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("22_n70r0")]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85968, 4.75585, 17.4923)

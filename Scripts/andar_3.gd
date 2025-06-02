@@ -2,7 +2,6 @@ extends Node
 
 @export var correct_order: Array[int] = [0, 1, 2] # Exemplo
 @export var player_path: NodePath = "ProtoController"
-@export var fade_path: NodePath = "CanvasLayer"
 
 @onready var exit_door = $staircase_exitDoor
 @onready var staircase: Node3D = %staircase

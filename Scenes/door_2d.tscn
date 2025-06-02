@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxn6vqcl68ww2"]
+
+[ext_resource type="Texture2D" uid="uid://8x5arho1xb44" path="res://Assets/Art/2D/Scenary/Door1.png" id="1_5he3t"]
+[ext_resource type="Script" uid="uid://cy28bew3cl4ej" path="res://Scripts/door_2d.gd" id="1_gx3s2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx3s2"]
+atlas = ExtResource("1_5he3t")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88mrx"]
+atlas = ExtResource("1_5he3t")
+region = Rect2(0, 96, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjsow"]
+atlas = ExtResource("1_5he3t")
+region = Rect2(0, 192, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha14t"]
+atlas = ExtResource("1_5he3t")
+region = Rect2(0, 288, 48, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0n52v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx3s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88mrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjsow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha14t")
+}],
+"loop": true,
+"name": &"door",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88mrx"]
+size = Vector2(48, 88)
+
+[node name="door_2D" type="Area2D"]
+script = ExtResource("1_gx3s2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0n52v")
+animation = &"door"
+frame_progress = 0.725471
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_88mrx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
