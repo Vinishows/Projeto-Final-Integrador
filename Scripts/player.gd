@@ -1,37 +1,49 @@
 extends CharacterBody2D
 
 const SPEED = 150.0
-const JUMP_VELOCITY = -400.0
-var last_direction: String = "left"
+var last_direction: String = "right"
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		$sprite.play("jump_right")
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction.
-	var direction := Vector2(
+	var input_vector := Vector2(
 		Input.get_axis("ui_left", "ui_right"), 
-		Input.get_axis("ui_left", "ui_right")
+		Input.get_axis("ui_up", "ui_down")
 	).normalized()
 
-	# Update velocity based on input.
-	velocity.x = direction.x * SPEED
-	
-	if direction != Vector2.ZERO:
-		if direction.x < 0:
-			last_direction = "left"
-		elif direction.x > 0:
-			last_direction = "right"
+	# Atualiza a velocidade com base no input
+	velocity = input_vector * SPEED
 
-		$sprite.play("walk_" + last_direction)
+	if input_vector != Vector2.ZERO:
+		if abs(input_vector.x) > abs(input_vector.y):
+			if input_vector.x > 0:
+				last_direction = "right"
+				$sprite.play("walk")
+				$sprite.flip_h = false
+			else:
+				last_direction = "left"
+				$sprite.play("walk")
+				$sprite.flip_h = true
+		else:
+			if input_vector.y > 0:
+				last_direction = "front"
+				$sprite.play("down")
+				$sprite.flip_h = false
+			else:
+				last_direction = "back"
+				$sprite.play("up")
+				$sprite.flip_h = false
 	else:
-		# Character is idle.
-		$sprite.play("idle_" + last_direction)
+		match last_direction:
+			"right":
+				$sprite.play("idle_walk")
+				$sprite.flip_h = false
+			"left":
+				$sprite.play("idle_walk")
+				$sprite.flip_h = true
+			"front":
+				$sprite.play("idle_down")
+				$sprite.flip_h = false
+			"back":
+				$sprite.play("idle_up")
+				$sprite.flip_h = false
 
 	move_and_slide()
