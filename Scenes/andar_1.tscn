@@ -1,13 +1,13 @@
 [gd_scene load_steps=25 format=4 uid="uid://dp77yrlajyyd8"]
 
-[ext_resource type="Script" path="res://Scripts/andar_1.gd" id="1_8oj3v"]
+[ext_resource type="Script" uid="uid://b78tsoxqc0lp4" path="res://Scripts/andar_1.gd" id="1_8oj3v"]
 [ext_resource type="Texture2D" uid="uid://cg0c5cdtkhu7j" path="res://Assets/Art/2D/Scenary/Inside_C.png" id="1_h52c2"]
 [ext_resource type="Texture2D" uid="uid://c5hecunyam41u" path="res://Assets/Art/2D/Scenary/Inside_D.png" id="2_mexnn"]
 [ext_resource type="Texture2D" uid="uid://3s4e0bdpx077" path="res://Assets/Art/2D/Scenary/Inside_E.png" id="3_541bc"]
 [ext_resource type="Texture2D" uid="uid://dty3waq51v5th" path="res://Assets/Art/2D/Scenary/A5.png" id="4_gvric"]
 [ext_resource type="Texture2D" uid="uid://bkeij15exb551" path="res://Assets/Art/2D/Scenary/A4.png" id="5_8oj3v"]
 [ext_resource type="PackedScene" uid="uid://b6xc2jygq8vcu" path="res://Scenes/player.tscn" id="6_7n6ic"]
-[ext_resource type="PackedScene" path="res://Scenes/door_2d.tscn" id="7_541bc"]
+[ext_resource type="PackedScene" uid="uid://dxn6vqcl68ww2" path="res://Scenes/door_2d.tscn" id="7_541bc"]
 [ext_resource type="Texture2D" uid="uid://cscfdctjndshc" path="res://Assets/Art/2D/Scenary/Sprite-0001.jpg" id="7_mexnn"]
 [ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="10_7n6ic"]
 
@@ -218,3 +218,5 @@ position = Vector2(-1181, -18)
 scale = Vector2(1.2, 1.2)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_7n6ic")]
+unique_name_in_owner = true
+visible = false

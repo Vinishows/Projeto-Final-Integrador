@@ -1,8 +1,10 @@
 extends Node2D
 
 @export var fade_path: NodePath = "CanvasLayer"
+@onready var canvas_layer: CanvasLayer = %CanvasLayer
 
 func _ready():
+	canvas_layer.visible = true
 	for door in get_tree().get_nodes_in_group("doors_2d"):
 		door.door_interacted.connect(_on_door_interacted)
 

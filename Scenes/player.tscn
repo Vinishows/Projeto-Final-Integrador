@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b6xc2jygq8vcu"]
+[gd_scene load_steps=40 format=3 uid="uid://b6xc2jygq8vcu"]
 
 [ext_resource type="Script" uid="uid://dt8wp25r4x1b" path="res://Scripts/player.gd" id="1_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://di2de75agpal6" path="res://Assets/Art/2D/Characters/Protag/down/1.png" id="2_p1odr"]
@@ -180,10 +180,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
-size = Vector2(40, 115.455)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(32, 41.2727)
+size = Vector2(40, 21.8184)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_x3wgy")
@@ -195,14 +192,9 @@ animation = &"walk"
 frame_progress = 0.361162
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -0.500002)
+position = Vector2(-2, 51.0001)
 scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_v0iea")
-
-[node name="hurtbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.7)
-scale = Vector2(1.1, 1.1)
-shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.7, 1.7)
