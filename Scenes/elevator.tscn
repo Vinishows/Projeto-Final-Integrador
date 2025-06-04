@@ -96,6 +96,7 @@ transform = Transform3D(110.361, 0, 0, 0, 39.7363, 0, 0, 0, 152.662, 21.8213, 75
 shape = SubResource("ConcavePolygonShape3D_ehl1p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_uble1")
 }

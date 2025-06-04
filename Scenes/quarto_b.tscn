@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://c5hecunyam41u" path="res://Assets/Art/2D/Scenary/Inside_D.png" id="6_pcjxi"]
 [ext_resource type="Texture2D" uid="uid://3s4e0bdpx077" path="res://Assets/Art/2D/Scenary/Inside_E.png" id="7_5l5c4"]
 [ext_resource type="PackedScene" uid="uid://b6xc2jygq8vcu" path="res://Scenes/player.tscn" id="8_w7vwl"]
-[ext_resource type="Texture2D" uid="uid://devq6yikf75ni" path="res://Assets/Art/2D/Characters/Crazy/Crazy.png" id="9_cs0ja"]
-[ext_resource type="Script" uid="uid://c0jbyvy2qqniy" path="res://Scripts/area_2d.gd" id="9_umxot"]
+[ext_resource type="PackedScene" uid="uid://x51s1dhi0dj2" path="res://Scenes/crazy_npc.tscn" id="10_x30c3"]
+[ext_resource type="PackedScene" uid="uid://i0apf30iqv7m" path="res://Scenes/int_obj.tscn" id="11_osd0n"]
+[ext_resource type="Texture2D" uid="uid://qxonbt7ajwqx" path="res://Assets/Art/2D/Scenary/interactables/drawers.png" id="12_pcjxi"]
+[ext_resource type="Texture2D" uid="uid://bl8uw0ybk4fdc" path="res://Assets/Art/2D/Scenary/interactables/thrash.png" id="13_5l5c4"]
+[ext_resource type="Texture2D" uid="uid://bfxpwftfcf5td" path="res://Assets/Art/2D/Scenary/interactables/wardrobe.png" id="13_w7vwl"]
+[ext_resource type="Texture2D" uid="uid://chnpk3pjqpruo" path="res://Assets/Art/2D/Scenary/interactables/big_bed.png" id="14_cs0ja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plhou"]
 texture = ExtResource("1_dvy7q")
@@ -435,47 +439,6 @@ sources/4 = SubResource("TileSetAtlasSource_6u6bg")
 sources/5 = SubResource("TileSetAtlasSource_das6p")
 sources/6 = SubResource("TileSetAtlasSource_vc8yg")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvy7q"]
-size = Vector2(160, 78.3334)
-
-[sub_resource type="Animation" id="Animation_dqo1u"]
-resource_name = "shake"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(553, 315), Vector2(550, 315), Vector2(553, 315), Vector2(550, 315)]
-}
-
-[sub_resource type="Animation" id="Animation_jk5b5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(553, 315)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jm82e"]
-_data = {
-&"RESET": SubResource("Animation_jk5b5"),
-&"shake": SubResource("Animation_dqo1u")
-}
-
 [node name="Quarto_b" type="Node2D"]
 script = ExtResource("1_ta4be")
 
@@ -504,27 +467,36 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAcAAUABAAMACIAAAAfAAUABAAMACIAABAcAA4ABQAMAAEAAAArAA4AAwAAABwAAFArABAAAwAAABwAAFAqAA8AAwADABwAAFAiAAoAAwAGABkAAAAjAAoAAwAHABkAAAAlAAsAAwAGABkAAFAlAAwAAwAHABkAAFAjAAsAAwAGABkAAEAjAAwAAwAHABkAAEAiAAsAAwAIABkAAAAiAAwAAwAIABoAAAAeAA8AAwAIABkAAFAdAA8AAwAIABoAAFAbAAwAAwAGABkAAAAcAAwAAwAHABkAAAAaAAwAAwAGABkAAAAaAAsAAwAGABkAAAAbAAsAAwAHABkAAAAcABAAAwAGABkAAAAdABAAAwAHABkAAAA=")
 tile_set = SubResource("TileSet_1bvmj")
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("9_umxot")
+[node name="Area2D2" parent="." instance=ExtResource("10_x30c3")]
+position = Vector2(512, 328)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-self_modulate = Color(0.921569, 0.921569, 0.921569, 1)
-position = Vector2(553, 315)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("9_cs0ja")
+[node name="int_obj" parent="." instance=ExtResource("11_osd0n")]
+position = Vector2(317, 210)
+scale = Vector2(2.2, 2.2)
+nome = "drawer"
+offset = Vector2(0, 16)
+sprite = ExtResource("12_pcjxi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(559, 322)
-scale = Vector2(1.2, 1.2)
-shape = SubResource("RectangleShape2D_dvy7q")
+[node name="int_obj2" parent="." instance=ExtResource("11_osd0n")]
+position = Vector2(672, 232)
+scale = Vector2(2.57, 2.207)
+nome = "thrash"
+offset = Vector2(0, 10)
+sprite = ExtResource("13_5l5c4")
+
+[node name="int_obj3" parent="." instance=ExtResource("11_osd0n")]
+position = Vector2(784, 184)
+scale = Vector2(2.2, 2.2)
+nome = "wardrobe"
+offset = Vector2(0, 47)
+sprite = ExtResource("13_w7vwl")
 
 [node name="Player" parent="." instance=ExtResource("8_w7vwl")]
 position = Vector2(92, 193)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_jm82e")
-}
-autoplay = "shake"
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="int_obj4" parent="." instance=ExtResource("11_osd0n")]
+position = Vector2(771, 397)
+scale = Vector2(2.25, 2.17)
+nome = "big_bed"
+offset = Vector2(-35, 0)
+sprite = ExtResource("14_cs0ja")

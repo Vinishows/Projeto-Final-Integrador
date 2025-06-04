@@ -266,6 +266,6 @@ transform = Transform3D(-6.74714e-10, 0, 0.0154357, 0, 0.0154357, 0, -0.0154357,
 transform = Transform3D(-4.51976e-08, 0, -1.034, 0, 1.034, 0, 1.034, 0, -4.51976e-08, -5.81665, 0, 4.34656)
 
 [node name="Player_25" parent="." instance=ExtResource("20_umjhk")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 9.52825, 1.83956, 9.85204)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 5.59914, 1.83956, 9.85204)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("22_n70r0")]

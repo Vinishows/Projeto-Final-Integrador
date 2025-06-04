@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cswel5rm0glwn"]
+[gd_scene load_steps=47 format=4 uid="uid://cswel5rm0glwn"]
 
 [ext_resource type="Texture2D" uid="uid://cscfdctjndshc" path="res://Assets/Art/2D/Scenary/Sprite-0001.jpg" id="1_ye854"]
 [ext_resource type="Texture2D" uid="uid://bkeij15exb551" path="res://Assets/Art/2D/Scenary/A4.png" id="2_hdv7d"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://c5hecunyam41u" path="res://Assets/Art/2D/Scenary/Inside_D.png" id="6_ie06a"]
 [ext_resource type="Texture2D" uid="uid://3s4e0bdpx077" path="res://Assets/Art/2D/Scenary/Inside_E.png" id="7_a1j7c"]
 [ext_resource type="PackedScene" uid="uid://b6xc2jygq8vcu" path="res://Scenes/player.tscn" id="8_2xc5f"]
+[ext_resource type="PackedScene" uid="uid://i0apf30iqv7m" path="res://Scenes/int_obj.tscn" id="9_ljqls"]
+[ext_resource type="Texture2D" uid="uid://bsbns0cyux7mi" path="res://Assets/Art/2D/Scenary/interactables/open_wardrobe.png" id="10_fm7xf"]
+[ext_resource type="Texture2D" uid="uid://cphofvi2e67o4" path="res://Assets/Art/2D/Scenary/interactables/open_drawer.png" id="11_fm7xf"]
+[ext_resource type="Texture2D" uid="uid://c8f2ywn3iwc64" path="res://Assets/Art/2D/Scenary/interactables/couch_up.png" id="12_n0xgw"]
+[ext_resource type="Texture2D" uid="uid://cvcapnomq6d26" path="res://Assets/Art/2D/Scenary/interactables/bookshelf.png" id="13_ie06a"]
+[ext_resource type="Texture2D" uid="uid://dha2eo4ook0y5" path="res://Assets/Art/2D/Scenary/interactables/painting2.png" id="14_a1j7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ye854"]
 texture = ExtResource("1_ye854")
@@ -497,7 +503,7 @@ tile_set = SubResource("TileSet_s44gl")
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(-197, -1)
 scale = Vector2(2.2, 2.2)
-tile_map_data = PackedByteArray("AAAOAAUAAwAbAAEAAAAdAAYAAwAAACsAAAAaAAgAAwAeAB4AAAAaAAIAAwAnAAAAAAAXAAYAAwADACcAABASAAIABAAAACoAAAATAAMABAADACoAAAAVAAIABAAAACoAAAALAAEAAwAAABIAAAASAAwAAwAPABMAAAA=")
+tile_map_data = PackedByteArray("AAAdAAYAAwAAACsAAAAaAAIAAwAnAAAAAAASAAIABAAAACoAAAASAAwAAwAPABMAAAANAAUAAwAbAAEAAAAVAAYAAwADACcAAAAaAAgAAwAeAB4AAAAJAAIAAwAAABIAAAATAAMABAADACoAAAA=")
 tile_set = SubResource("TileSet_bvqf1")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
@@ -506,6 +512,40 @@ position = Vector2(-197, -1)
 scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAkAAQABAAJACIAABAoAAQABAAJACIAAAAgAAwAAwAGABkAAAAhAAwAAwAHABkAAAAgAAoAAwAGABkAAFAgAAsAAwAHABkAAFAfAAsAAwAGABkAAEAfAAwAAwAHABkAAEApAAwAAwAIABkAAAApAA0AAwAIABoAAAAYAAwAAwAGABkAAAAZAAwAAwAHABkAAAA=")
 tile_set = SubResource("TileSet_8vpy7")
+
+[node name="int_obj" parent="." instance=ExtResource("9_ljqls")]
+position = Vector2(280, 200)
+scale = Vector2(2.2, 2.2)
+nome = "open_wardrobe"
+offset = Vector2(0, 41)
+sprite = ExtResource("10_fm7xf")
+
+[node name="int_obj2" parent="." instance=ExtResource("9_ljqls")]
+position = Vector2(551, 235)
+scale = Vector2(2.2, 2.2)
+nome = "open_drawer"
+offset = Vector2(0, 16)
+sprite = ExtResource("11_fm7xf")
+
+[node name="int_obj3" parent="." instance=ExtResource("9_ljqls")]
+position = Vector2(448, 448)
+scale = Vector2(2.2, 2.2)
+nome = "couch"
+sprite = ExtResource("12_n0xgw")
+
+[node name="int_obj4" parent="." instance=ExtResource("9_ljqls")]
+position = Vector2(840, 224)
+scale = Vector2(2.2, 2.2)
+nome = "bookshelf"
+offset = Vector2(0, 26)
+sprite = ExtResource("13_ie06a")
+
+[node name="int_obj5" parent="." instance=ExtResource("9_ljqls")]
+position = Vector2(453, 94)
+scale = Vector2(2.2, 2.2)
+nome = "pintura"
+offset = Vector2(0, 69)
+sprite = ExtResource("14_a1j7c")
 
 [node name="Player" parent="." instance=ExtResource("8_2xc5f")]
 position = Vector2(92, 193)

@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://x51s1dhi0dj2"]
+
+[ext_resource type="Texture2D" uid="uid://devq6yikf75ni" path="res://Assets/Art/2D/Characters/Crazy/Crazy.png" id="1_7ckxu"]
+[ext_resource type="Script" uid="uid://b7q8oq4abdq03" path="res://Scripts/crazy_npc.gd" id="1_hcnu5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcnu5"]
+size = Vector2(175.976, 80.0531)
+
+[sub_resource type="Animation" id="Animation_c7lwp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kuklq"]
+resource_name = "shake"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 0), Vector2(0, 0), Vector2(3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cicba"]
+_data = {
+&"RESET": SubResource("Animation_c7lwp"),
+&"shake": SubResource("Animation_kuklq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuklq"]
+size = Vector2(104, 34)
+
+[node name="Area2D" type="StaticBody2D"]
+script = ExtResource("1_hcnu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ckxu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="interact_collision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.8147e-06, 8)
+rotation = 0.000301708
+shape = SubResource("RectangleShape2D_hcnu5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cicba")
+}
+autoplay = "shake"
+
+[node name="physical_colision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_kuklq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

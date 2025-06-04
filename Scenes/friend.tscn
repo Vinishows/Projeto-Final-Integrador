@@ -1,0 +1,74 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1tikt5lh2ljh"]
+
+[ext_resource type="Script" uid="uid://bgsc8rac5gko" path="res://Scripts/friend.gd" id="1_5svhu"]
+[ext_resource type="Texture2D" uid="uid://ce6j3paidt2c6" path="res://Assets/Art/2D/Characters/Amiga/Corrompida/1.png" id="1_xsxub"]
+[ext_resource type="Texture2D" uid="uid://cjcwfur7mljq8" path="res://Assets/Art/2D/Characters/Amiga/Corrompida/2.png" id="2_5svhu"]
+[ext_resource type="Texture2D" uid="uid://tusnk57sohna" path="res://Assets/Art/2D/Characters/Amiga/Corrompida/3.png" id="3_rmfph"]
+[ext_resource type="Texture2D" uid="uid://d2mlfygbw8bp" path="res://Assets/Art/2D/Characters/Amiga/Corrompida/4.png" id="4_5lv41"]
+[ext_resource type="Texture2D" uid="uid://yq1eeg73dapk" path="res://Assets/Art/2D/Characters/Amiga/Normal/1.png" id="5_yqpuj"]
+[ext_resource type="Texture2D" uid="uid://l2rirmby7nlu" path="res://Assets/Art/2D/Characters/Amiga/Normal/2.png" id="6_bnxra"]
+[ext_resource type="Texture2D" uid="uid://dbifrd6t22xs6" path="res://Assets/Art/2D/Characters/Amiga/Normal/3.png" id="7_f8o8g"]
+[ext_resource type="Texture2D" uid="uid://d2qfo8edyq4pd" path="res://Assets/Art/2D/Characters/Amiga/Normal/4.png" id="8_6u103"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j873l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xsxub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5svhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rmfph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5lv41")
+}],
+"loop": true,
+"name": &"idle_bug",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yqpuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bnxra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f8o8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6u103")
+}],
+"loop": true,
+"name": &"idle_normal",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82b0m"]
+size = Vector2(41, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jefsc"]
+size = Vector2(96, 160)
+
+[node name="friend" type="StaticBody2D"]
+script = ExtResource("1_5svhu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j873l")
+animation = &"idle_normal"
+frame_progress = 0.309159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_82b0m")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jefsc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

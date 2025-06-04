@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://i0apf30iqv7m"]
+
+[ext_resource type="Script" uid="uid://birbeu7e02u5m" path="res://Scripts/int_obj.gd" id="1_r11gu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r11gu"]
+size = Vector2(55, 40)
+
+[node name="int_obj" type="Node2D"]
+script = ExtResource("1_r11gu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_r11gu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

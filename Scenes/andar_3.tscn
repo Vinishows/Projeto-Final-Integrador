@@ -134,9 +134,9 @@ size = Vector3(0.835, 0.834839, 1)
 material = SubResource("StandardMaterial3D_l6on2")
 
 [node name="wall6" type="CSGBox3D" parent="floor_structure"]
-transform = Transform3D(1.8991, 0, 0, 0, 0.838806, 0, 0, 0, 0.0999999, -4.58688, 0.43089, 5.31283)
+transform = Transform3D(1.8991, 0, 0, 0, 0.838806, 0, 0, 0, 0.0999999, -4.53661, 0.43089, 5.31283)
 flip_faces = true
-size = Vector3(1.39787, 0.834839, 1)
+size = Vector3(1.34493, 0.834839, 1)
 material = SubResource("StandardMaterial3D_l6on2")
 
 [node name="wall7" type="CSGBox3D" parent="floor_structure"]
@@ -163,8 +163,8 @@ size = Vector3(1.66272, 1.0127, 1)
 material = SubResource("StandardMaterial3D_lwde6")
 
 [node name="doors_wall4" type="CSGBox3D" parent="floor_structure"]
-transform = Transform3D(-5.14836e-08, 0, 0.0999999, 0, 2.18329, 0, -1.17781, 0, -4.37113e-09, -5.86482, 1.16781, 4.29794)
-size = Vector3(1.67943, 1.0127, 1)
+transform = Transform3D(-5.14836e-08, 0, 0.0999999, 0, 2.18329, 0, -1.17781, 0, -4.37113e-09, -5.87492, 1.22356, 4.31858)
+size = Vector3(1.65636, 1.07862, 1)
 material = SubResource("StandardMaterial3D_lwde6")
 
 [node name="doors_wall2" type="CSGBox3D" parent="floor_structure"]
@@ -178,19 +178,19 @@ size = Vector3(1.66272, 1.0127, 1)
 material = SubResource("StandardMaterial3D_lwde6")
 
 [node name="ceeling" type="CSGBox3D" parent="floor_structure"]
-transform = Transform3D(6.98234, 0, 0, 0, 0.147908, 0, 0, 0, 8.73103, -1.0649, 2.33464, 4.46365)
+transform = Transform3D(6.98234, 0, 0, 0, 0.147908, 0, 0, 0, 8.73102, -1.07769, 2.33464, 4.25116)
 use_collision = true
-size = Vector3(1.35791, 1, 0.288756)
+size = Vector3(1.36157, 1, 0.240081)
 material = SubResource("StandardMaterial3D_s2wh6")
 
 [node name="lamp1" parent="floor_structure" instance=ExtResource("15_byx7a")]
-transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, 1.1584, 2.24819, 4.59801)
+transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, 1.33096, 2.24819, 4.31185)
 
 [node name="lamp2" parent="floor_structure" instance=ExtResource("15_byx7a")]
-transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -1.86906, 2.24819, 4.59801)
+transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -1.6965, 2.24819, 4.31185)
 
 [node name="lamp3" parent="floor_structure" instance=ExtResource("15_byx7a")]
-transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -4.69085, 2.24819, 4.59801)
+transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -4.51829, 2.24819, 4.31185)
 
 [node name="Untitled" parent="floor_structure" instance=ExtResource("15_0vyto")]
 transform = Transform3D(0.0198116, 0, 0, 0, 0.0198116, 0, 0, 0, 0.012621, -3.83093, 0.164441, 4.32136)
@@ -249,6 +249,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.9044
 [node name="staircase" parent="." instance=ExtResource("21_4jr0e")]
 unique_name_in_owner = true
 transform = Transform3D(1.85221, 0, 0, 0, 1.85221, 0, 0, 0, 1.85221, -10.1942, 2.26094, 4.38049)
+visible = false
 
 [node name="staircase_exitDoor" parent="." instance=ExtResource("19_4jr0e")]
 transform = Transform3D(-8.38259e-08, 0, 1.91771, 0, 1.91771, 0, -1.91771, 0, -8.38259e-08, -7.0991, 9.11944, 1.08122)
