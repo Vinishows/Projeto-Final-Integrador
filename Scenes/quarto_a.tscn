@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dngkb6y3mh8r2"]
+[gd_scene load_steps=52 format=4 uid="uid://dngkb6y3mh8r2"]
 
 [ext_resource type="Script" uid="uid://b70mtsc2h7dyv" path="res://Scripts/quarto_a.gd" id="1_ad6cl"]
 [ext_resource type="Texture2D" uid="uid://bkeij15exb551" path="res://Assets/Art/2D/Scenary/A4.png" id="1_uerap"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://pnx7x5rki2c4" path="res://Assets/Art/2D/Scenary/interactables/wardrobe_side.png" id="13_blqcl"]
 [ext_resource type="Texture2D" uid="uid://dj2vpbf1w4874" path="res://Assets/Art/2D/Scenary/interactables/carpet1.png" id="15_tds77"]
 [ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="17_qb5bs"]
+[ext_resource type="PackedScene" uid="uid://cst5ddlgh17gr" path="res://Scenes/event_intro.tscn" id="18_b5pxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uerap"]
 texture = ExtResource("7_blqcl")
@@ -469,6 +470,8 @@ position = Vector2(496, 280)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("17_qb5bs")]
 visible = false
+
+[node name="Event_Intro" parent="." instance=ExtResource("18_b5pxi")]
 
 [connection signal="body_entered" from="carpet" to="." method="_on_carpet_body_entered"]
 [connection signal="body_exited" from="carpet" to="." method="_on_carpet_body_exited"]

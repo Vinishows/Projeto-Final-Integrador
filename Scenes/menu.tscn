@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhytvioqawg3h"]
+[gd_scene load_steps=6 format=3 uid="uid://bhytvioqawg3h"]
 
 [ext_resource type="Script" uid="uid://byow3c13w6isn" path="res://Scripts/menu.gd" id="2_0gf73"]
 [ext_resource type="Texture2D" uid="uid://dcxfna5f6xdla" path="res://Assets/Art/2D/Details-Props/ui-tower-nine.png" id="2_cayip"]
 [ext_resource type="FontFile" uid="uid://by63x7j2ytbu" path="res://Assets/Fonts/BasheqVintageDemoVersionRegular-ov13x.ttf" id="3_158mb"]
 [ext_resource type="FontFile" uid="uid://mxu3h68kfrpe" path="res://Assets/Fonts/Beholden-Medium.ttf" id="3_wwsa2"]
+[ext_resource type="AudioStream" uid="uid://brx3lne81cddq" path="res://Assets/Sound/Main_theme.wav" id="5_wwsa2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -58,6 +59,10 @@ theme_override_fonts/font = ExtResource("3_wwsa2")
 theme_override_font_sizes/font_size = 36
 toggle_mode = true
 text = "  Sair do Jogo  "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wwsa2")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

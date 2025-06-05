@@ -21,14 +21,17 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"character": "res://Dialogs/character.dch"
+}
 directories/dtl_directory={
-"open_wardrobe": "res://Dialogs/open_wardrobe.dtl"
+"open_wardrobe": "res://Dialogs/open_wardrobe.dtl",
+"timeline": "res://Dialogs/timeline.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
 layout/style_list=[]
-layout/default_style="Default"
+layout/default_style=""
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
