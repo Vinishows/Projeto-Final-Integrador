@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bgg7o5yq6ov0p"]
+[gd_scene load_steps=26 format=3 uid="uid://bgg7o5yq6ov0p"]
 
 [ext_resource type="Script" uid="uid://clr1ymoofwfq0" path="res://Scripts/room_25d.gd" id="1_k21ry"]
 [ext_resource type="PackedScene" uid="uid://cnpjd45rjp6nw" path="res://Assets/Art/3D/2.5D_level/locked_room.glb" id="2_lpdkk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cihlshcuax8yq" path="res://Assets/Art/3D/2.5D_level/roomTexture.png" id="5_7q3vl"]
 [ext_resource type="Texture2D" uid="uid://by21o4e7qe467" path="res://Assets/Art/3D/corredor/textures/carpet_baseColor.jpeg" id="6_01pyo"]
 [ext_resource type="PackedScene" uid="uid://drr4troyogubr" path="res://Scenes/player_2.5.tscn" id="7_lpdkk"]
+[ext_resource type="PackedScene" uid="uid://is76bng3vorp" path="res://Scenes/int_obj_3d.tscn" id="8_m5jrc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jmj7"]
 albedo_texture = ExtResource("3_m5jrc")
@@ -156,6 +157,11 @@ shape = SubResource("BoxShape3D_ud0fx")
 
 [node name="Player_25" parent="." instance=ExtResource("7_lpdkk")]
 transform = Transform3D(0.677735, 0, 0, 0, 0.677735, 0, 0, 0, 0.677735, 0.0192968, 1.31106, 1.68569)
+
+[node name="int_obj3D" parent="." instance=ExtResource("8_m5jrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24834, 0.911615, -0.996468)
+nome = "armario"
+offset = Vector3(0, 0.82, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

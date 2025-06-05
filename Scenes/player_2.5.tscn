@@ -208,7 +208,6 @@ shape = SubResource("BoxShape3D_3h8k7")
 [node name="sprite" type="AnimatedSprite3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373821, 0, 0)
-billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_fg3ce")
