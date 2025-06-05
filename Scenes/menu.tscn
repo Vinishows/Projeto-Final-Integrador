@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhytvioqawg3h"]
+[gd_scene load_steps=5 format=3 uid="uid://bhytvioqawg3h"]
 
 [ext_resource type="Script" uid="uid://byow3c13w6isn" path="res://Scripts/menu.gd" id="2_0gf73"]
-[ext_resource type="Texture2D" uid="uid://bnni2idha8use" path="res://icon.svg" id="2_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://dcxfna5f6xdla" path="res://Assets/Art/2D/Details-Props/ui-tower-nine.png" id="2_cayip"]
+[ext_resource type="FontFile" uid="uid://by63x7j2ytbu" path="res://Assets/Fonts/BasheqVintageDemoVersionRegular-ov13x.ttf" id="3_158mb"]
+[ext_resource type="FontFile" uid="uid://mxu3h68kfrpe" path="res://Assets/Fonts/Beholden-Medium.ttf" id="3_wwsa2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -12,64 +14,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_0gf73")
 
-[node name="Bg" type="TextureRect" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Bg" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_xhh6f")
+texture = ExtResource("2_cayip")
 
-[node name="QuitGame" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -126.5
-offset_top = -168.0
-offset_right = 126.5
-offset_bottom = -124.0
-grow_horizontal = 2
-grow_vertical = 0
-toggle_mode = true
-text = "Sair do Jogo"
-
-[node name="StartGame" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.5
-offset_top = 80.0
-offset_right = 126.5
-offset_bottom = 124.0
-grow_horizontal = 2
+offset_left = 131.0
+offset_top = -98.5
+offset_right = 633.0
+offset_bottom = 98.5
 grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_158mb")
+theme_override_font_sizes/font_size = 96
+text = "TOWER NINE"
+
+[node name="StartGame" type="Button" parent="CanvasLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_wwsa2")
+theme_override_font_sizes/font_size = 36
 toggle_mode = true
-text = "Iniciar Jogo"
+text = "  Iniciar Jogo  "
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="QuitGame" type="Button" parent="CanvasLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_wwsa2")
+theme_override_font_sizes/font_size = 36
+toggle_mode = true
+text = "  Sair do Jogo  "
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
-texture = ExtResource("2_xhh6f")
-centered = false
-
-[connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]
-[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

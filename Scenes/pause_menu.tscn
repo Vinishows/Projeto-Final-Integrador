@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://sp4kry4pvma1"]
+[gd_scene load_steps=5 format=3 uid="uid://sp4kry4pvma1"]
 
 [ext_resource type="Script" uid="uid://cxbwye01sm0bq" path="res://Scripts/pause_menu.gd" id="2_am7hg"]
-[ext_resource type="Texture2D" uid="uid://bnni2idha8use" path="res://icon.svg" id="3_1och7"]
+[ext_resource type="FontFile" uid="uid://by63x7j2ytbu" path="res://Assets/Fonts/BasheqVintageDemoVersionRegular-ov13x.ttf" id="3_bpi0q"]
 [ext_resource type="Material" uid="uid://ivbpwddbmld2" path="res://Assets/Shaders/BlurShader.tres" id="4_jkl2e"]
+[ext_resource type="FontFile" uid="uid://mxu3h68kfrpe" path="res://Assets/Fonts/Beholden-Medium.ttf" id="4_vmyb1"]
 
 [node name="PauseMenu" type="Control"]
 top_level = true
@@ -18,40 +19,54 @@ grow_vertical = 2
 scale = Vector2(0.74, 0.74)
 script = ExtResource("2_am7hg")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = ExtResource("4_jkl2e")
-layout_mode = 0
-offset_left = -225.0
-offset_right = 1505.0
-offset_bottom = 973.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("4_jkl2e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
-[node name="Frame" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
-position = Vector2(54.1352, -63.973)
-scale = Vector2(0.925532, 0.925532)
-texture = ExtResource("3_1och7")
-
-[node name="ResumeGame" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bpi0q")
+theme_override_font_sizes/font_size = 96
+text = "Tower Nine"
+
+[node name="ResumeGame" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_vmyb1")
+theme_override_font_sizes/font_size = 36
 toggle_mode = true
 action_mode = 0
-text = "Resumir Jogo"
+text = "    Resumir Jogo    "
 
-[node name="QuitGame" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="QuitGame" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_vmyb1")
+theme_override_font_sizes/font_size = 36
 toggle_mode = true
-text = "Sair do Jogo"
+text = "     Sair do Jogo     "
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeGame" to="." method="_on_resume_game_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/ResumeGame" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

@@ -23,7 +23,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
-"teste": "res://Dialogs/open_wardrobe.dtl"
+"open_wardrobe": "res://Dialogs/open_wardrobe.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
