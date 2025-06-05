@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://rabf2phvs5fv" path="res://Assets/Art/2D/Characters/Protag/idle/sideways/4.png" id="25_q5f2p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3h8k7"]
-size = Vector3(1, 1.09229, 1)
+size = Vector3(0.760986, 1.09229, 0.853271)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sweqm"]
 load_path = "res://.godot/imported/1.png-b1ace608fed908ecd8f5af74903d0bde.s3tc.ctex"
@@ -202,7 +202,7 @@ animations = [{
 script = ExtResource("1_7yom5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.825857, 0, 0, 0, 1, 0, 0, 0, 0.59996, 0, -0.0461426, 0)
+transform = Transform3D(0.825857, 0, 0, 0, 1, 0, 0, 0, 0.59996, 0.0162308, -0.0461426, -0.00256331)
 shape = SubResource("BoxShape3D_3h8k7")
 
 [node name="sprite" type="AnimatedSprite3D" parent="."]

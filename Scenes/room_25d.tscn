@@ -1,0 +1,164 @@
+[gd_scene load_steps=25 format=3 uid="uid://bgg7o5yq6ov0p"]
+
+[ext_resource type="Script" uid="uid://clr1ymoofwfq0" path="res://Scripts/room_25d.gd" id="1_k21ry"]
+[ext_resource type="PackedScene" uid="uid://cnpjd45rjp6nw" path="res://Assets/Art/3D/2.5D_level/locked_room.glb" id="2_lpdkk"]
+[ext_resource type="Texture2D" uid="uid://d3ty0086b2b24" path="res://Assets/Art/3D/2.5D_level/PrisonCellTexture.png" id="3_m5jrc"]
+[ext_resource type="PackedScene" uid="uid://qw0js6hswki" path="res://Assets/Art/3D/2.5D_level/room.glb" id="4_inuia"]
+[ext_resource type="Texture2D" uid="uid://cihlshcuax8yq" path="res://Assets/Art/3D/2.5D_level/roomTexture.png" id="5_7q3vl"]
+[ext_resource type="Texture2D" uid="uid://by21o4e7qe467" path="res://Assets/Art/3D/corredor/textures/carpet_baseColor.jpeg" id="6_01pyo"]
+[ext_resource type="PackedScene" uid="uid://drr4troyogubr" path="res://Scenes/player_2.5.tscn" id="7_lpdkk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jmj7"]
+albedo_texture = ExtResource("3_m5jrc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lpdkk"]
+size = Vector3(4.21674, 0.245056, 4.22668)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m5jrc"]
+size = Vector3(8.47748, 2.63287, 0.20752)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhits"]
+size = Vector3(0.182617, 0.27356, 0.179878)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n33q8"]
+size = Vector3(0.469971, 0.462036, 0.388672)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jdwsm"]
+height = 0.907715
+radius = 0.421387
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vq1jw"]
+size = Vector3(0.783081, 0.637817, 1.72095)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnfx3"]
+albedo_texture = ExtResource("5_7q3vl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_inuia"]
+size = Vector3(4.17676, 0.171875, 4.19928)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q3vl"]
+size = Vector3(0.172363, 2.5321, 4.22015)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_01pyo"]
+size = Vector3(1.48157, 1.43378, 0.811279)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1035"]
+size = Vector3(1.11365, 1.17773, 0.526367)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_coykf"]
+size = Vector3(0.548828, 0.4245, 1.14429)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u71qk"]
+size = Vector3(0.105957, 2.37485, 1.13989)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3nfds"]
+size = Vector3(0.126923, 0.600098, 2.03076)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1035"]
+albedo_texture = ExtResource("6_01pyo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ud0fx"]
+size = Vector3(1.10748, 0.117737, 0.435303)
+
+[node name="room_25D" type="Node3D"]
+script = ExtResource("1_k21ry")
+
+[node name="locked_room" parent="." instance=ExtResource("2_lpdkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88394, 0, -0.102899)
+
+[node name="PrisonCell_001" parent="locked_room" index="0"]
+material_override = SubResource("StandardMaterial3D_6jmj7")
+
+[node name="floor" type="CollisionShape3D" parent="locked_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0918884, 0.713464, 0.197693)
+shape = SubResource("BoxShape3D_lpdkk")
+
+[node name="wall1" type="CollisionShape3D" parent="locked_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01218, 2.17359, -2.06373)
+shape = SubResource("BoxShape3D_m5jrc")
+
+[node name="wall2" type="CollisionShape3D" parent="locked_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01218, 2.17359, 2.36366)
+shape = SubResource("BoxShape3D_m5jrc")
+
+[node name="thrash" type="CollisionShape3D" parent="locked_room"]
+transform = Transform3D(0.994831, 0.0499477, 0.0884066, -0.0513297, 0.998591, 0.0134265, -0.0876114, -0.017895, 0.995994, -1.73651, 1.09959, 1.34538)
+shape = SubResource("BoxShape3D_mhits")
+
+[node name="drawer" type="CollisionShape3D" parent="locked_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.483032, 1.09356, -1.42044)
+shape = SubResource("BoxShape3D_n33q8")
+
+[node name="toilet" type="CollisionShape3D" parent="locked_room"]
+transform = Transform3D(0.367757, 0, 0, 0, 0.367757, 0, 0, 0, 0.367757, 1.33887, 1.02078, -1.55028)
+shape = SubResource("CylinderShape3D_jdwsm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="locked_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46941, 0.910911, -0.541626)
+shape = SubResource("BoxShape3D_vq1jw")
+
+[node name="room" parent="." instance=ExtResource("4_inuia")]
+
+[node name="PrisonCell_027" parent="room" index="0"]
+material_override = SubResource("StandardMaterial3D_tnfx3")
+
+[node name="floor" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237394, 0.754255, 0.0905092)
+shape = SubResource("BoxShape3D_inuia")
+
+[node name="wall1" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46437, 2.05916, 0.0675354)
+shape = SubResource("BoxShape3D_7q3vl")
+
+[node name="wall2" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.16702, 2.05916, 0.0675354)
+shape = SubResource("BoxShape3D_7q3vl")
+
+[node name="bed" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 0.239186, 0, 0, 0, 1, -0.48809, 1.00776, -1.47815)
+shape = SubResource("BoxShape3D_01pyo")
+
+[node name="wardrobe" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25444, 1.42867, -1.39742)
+shape = SubResource("BoxShape3D_b1035")
+
+[node name="pc_desk" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90425, 1.05914, 0.246627)
+shape = SubResource("BoxShape3D_coykf")
+
+[node name="thrash" type="CollisionShape3D" parent="room"]
+transform = Transform3D(0.940768, 0, -0.33905, 0, 1, 0, 0.33905, 0, 0.940768, 1.93809, 1.09959, 1.78337)
+shape = SubResource("BoxShape3D_mhits")
+
+[node name="broken_wall1" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81625, 2.27023, 1.5562)
+shape = SubResource("BoxShape3D_u71qk")
+
+[node name="broken_wall2" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81625, 2.07545, -1.48918)
+shape = SubResource("BoxShape3D_u71qk")
+
+[node name="broken_wall3" type="CollisionShape3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81782, 2.95772, 0.0649144)
+shape = SubResource("BoxShape3D_3nfds")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.918216, 1.73001)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0236204, 0, 0, 0, 1, 0.0937581, -0.0872193, 0.137077)
+material_override = SubResource("StandardMaterial3D_b1035")
+size = Vector3(1.12695, 1, 0.503662)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0899353, -0.0255432, 0.282349)
+shape = SubResource("BoxShape3D_ud0fx")
+
+[node name="Player_25" parent="." instance=ExtResource("7_lpdkk")]
+transform = Transform3D(0.677735, 0, 0, 0, 0.677735, 0, 0, 0, 0.677735, 0.0192968, 1.31106, 1.68569)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+
+[editable path="locked_room"]
+[editable path="room"]

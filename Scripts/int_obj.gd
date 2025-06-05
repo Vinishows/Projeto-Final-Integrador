@@ -4,7 +4,6 @@ class_name IntObj
 
 @onready var area_2d: Area2D = %Area2D
 @onready var sprite_2d: Sprite2D = %Sprite2D
-@onready var collision_shape_2d: CollisionShape2D = %Area2D/CollisionShape2D
 
 @export var size_button: bool:
 	set(new_size_button):
