@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwlkada2pqd6t"]
+
+[ext_resource type="Texture2D" uid="uid://0qb2bb4eb633" path="res://Assets/Art/2D/Characters/Fanatico/Pasta 1 Copiar 2.png" id="1_lkhyg"]
+[ext_resource type="Script" uid="uid://c5fc4sfrsfxtx" path="res://Scripts/lunatic.gd" id="1_tr8ol"]
+[ext_resource type="Texture2D" uid="uid://dr42vx01tlsca" path="res://Assets/Art/2D/Characters/Fanatico/Pasta 1 Copiar 3.png" id="2_tr8ol"]
+[ext_resource type="Texture2D" uid="uid://cf0lkxloy215l" path="res://Assets/Art/2D/Characters/Fanatico/Pasta 1 Copiar.png" id="3_lgh80"]
+[ext_resource type="Texture2D" uid="uid://nuy1vv705dm5" path="res://Assets/Art/2D/Characters/Fanatico/Pasta 1 Copias.png" id="4_7pcee"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3m4ds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lkhyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tr8ol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lgh80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7pcee")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vlgwr"]
+size = Vector3(0.669434, 1.21948, 0.559765)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4j7vd"]
+size = Vector3(1, 1.22705, 1)
+
+[node name="lunatic" type="StaticBody3D"]
+script = ExtResource("1_tr8ol")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+shaded = true
+sprite_frames = SubResource("SpriteFrames_3m4ds")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.241701
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012207, 0.000854492, -0.00778008)
+shape = SubResource("BoxShape3D_vlgwr")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00512695, 0)
+shape = SubResource("BoxShape3D_4j7vd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

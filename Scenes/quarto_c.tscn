@@ -1,6 +1,7 @@
-[gd_scene load_steps=47 format=4 uid="uid://cswel5rm0glwn"]
+[gd_scene load_steps=50 format=4 uid="uid://cswel5rm0glwn"]
 
 [ext_resource type="Texture2D" uid="uid://cscfdctjndshc" path="res://Assets/Art/2D/Scenary/Sprite-0001.jpg" id="1_ye854"]
+[ext_resource type="Script" uid="uid://dhptx2ssgomvh" path="res://Scripts/quarto_c.gd" id="1_yj415"]
 [ext_resource type="Texture2D" uid="uid://bkeij15exb551" path="res://Assets/Art/2D/Scenary/A4.png" id="2_hdv7d"]
 [ext_resource type="Texture2D" uid="uid://dty3waq51v5th" path="res://Assets/Art/2D/Scenary/A5.png" id="3_ljqls"]
 [ext_resource type="Texture2D" uid="uid://8x5arho1xb44" path="res://Assets/Art/2D/Scenary/Door1.png" id="4_fm7xf"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c8f2ywn3iwc64" path="res://Assets/Art/2D/Scenary/interactables/couch_up.png" id="12_n0xgw"]
 [ext_resource type="Texture2D" uid="uid://cvcapnomq6d26" path="res://Assets/Art/2D/Scenary/interactables/bookshelf.png" id="13_ie06a"]
 [ext_resource type="Texture2D" uid="uid://dha2eo4ook0y5" path="res://Assets/Art/2D/Scenary/interactables/painting2.png" id="14_a1j7c"]
+[ext_resource type="Texture2D" uid="uid://dj2vpbf1w4874" path="res://Assets/Art/2D/Scenary/interactables/carpet1.png" id="15_2xc5f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ye854"]
 texture = ExtResource("1_ye854")
@@ -486,7 +488,11 @@ sources/4 = SubResource("TileSetAtlasSource_65chb")
 sources/5 = SubResource("TileSetAtlasSource_l2t48")
 sources/6 = SubResource("TileSetAtlasSource_25qnf")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj415"]
+size = Vector2(32, 128)
+
 [node name="Quarto_c" type="Node2D"]
+script = ExtResource("1_yj415")
 
 [node name="Blackout" type="TileMapLayer" parent="."]
 scale = Vector2(2.5, 2.5)
@@ -547,5 +553,17 @@ nome = "pintura"
 offset = Vector2(0, 69)
 sprite = ExtResource("14_a1j7c")
 
+[node name="carpet" type="Area2D" parent="."]
+position = Vector2(24, 344)
+
+[node name="Sprite2D" type="Sprite2D" parent="carpet"]
+texture = ExtResource("15_2xc5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="carpet"]
+shape = SubResource("RectangleShape2D_yj415")
+
 [node name="Player" parent="." instance=ExtResource("8_2xc5f")]
 position = Vector2(92, 193)
+
+[connection signal="body_entered" from="carpet" to="." method="_on_carpet_body_entered"]
+[connection signal="body_exited" from="carpet" to="." method="_on_carpet_body_exited"]

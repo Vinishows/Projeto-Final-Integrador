@@ -205,12 +205,11 @@ size = Vector3(0.8, 0.3, 0.2)
 
 [node name="int_obj3D" type="Node3D"]
 script = ExtResource("1_py0sm")
-nome = null
-offset = null
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_auuhy")
 autoplay = "default"

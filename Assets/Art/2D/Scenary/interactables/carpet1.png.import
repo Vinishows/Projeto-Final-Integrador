@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr42vx01tlsca"
-path.s3tc="res://.godot/imported/Pasta 1 Copiar 3.png-dacd4ed63e19a659e5faf15ed2a61746.s3tc.ctex"
+uid="uid://dj2vpbf1w4874"
+path="res://.godot/imported/carpet1.png-de5c5df47a046be1b1c9a676909670dd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/2D/Characters/Fanatico/Pasta 1 Copiar 3.png"
-dest_files=["res://.godot/imported/Pasta 1 Copiar 3.png-dacd4ed63e19a659e5faf15ed2a61746.s3tc.ctex"]
+source_file="res://Assets/Art/2D/Scenary/interactables/carpet1.png"
+dest_files=["res://.godot/imported/carpet1.png-de5c5df47a046be1b1c9a676909670dd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

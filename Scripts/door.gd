@@ -7,11 +7,11 @@ signal door_interacted(door_id: int)
 var player_in_area = false
 
 func _on_body_entered(body):
-	if body.name == "ProtoController":
+	if body.name == "ProtoController" or "Player_25":
 		player_in_area = true
 
 func _on_body_exited(body):
-	if body.name == "ProtoController":
+	if body.name == "ProtoController" or "Player_25":
 		player_in_area = false
 
 func _process(delta):

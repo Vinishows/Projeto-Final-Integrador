@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dp77yrlajyyd8"]
+[gd_scene load_steps=26 format=4 uid="uid://dp77yrlajyyd8"]
 
 [ext_resource type="Script" uid="uid://b78tsoxqc0lp4" path="res://Scripts/andar_1.gd" id="1_8oj3v"]
 [ext_resource type="Texture2D" uid="uid://cg0c5cdtkhu7j" path="res://Assets/Art/2D/Scenary/Inside_C.png" id="1_h52c2"]
@@ -170,6 +170,9 @@ sources/2 = SubResource("TileSetAtlasSource_ikmsk")
 sources/3 = SubResource("TileSetAtlasSource_uwvhk")
 sources/4 = SubResource("TileSetAtlasSource_ryjxp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oj3v"]
+size = Vector2(20, 80)
+
 [node name="Andar_1" type="Node2D"]
 position = Vector2(1325, 242)
 script = ExtResource("1_8oj3v")
@@ -217,6 +220,15 @@ texture = ExtResource("7_mexnn")
 position = Vector2(-1181, -18)
 scale = Vector2(1.2, 1.2)
 
+[node name="elevator_collision" type="Area2D" parent="."]
+position = Vector2(819, 38)
+
+[node name="transition_collision" type="CollisionShape2D" parent="elevator_collision"]
+shape = SubResource("RectangleShape2D_8oj3v")
+
 [node name="CanvasLayer" parent="." instance=ExtResource("10_7n6ic")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="body_entered" from="elevator_collision" to="." method="_on_elevator_collision_body_entered"]
+[connection signal="body_exited" from="elevator_collision" to="." method="_on_elevator_collision_body_exited"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=47 format=4 uid="uid://dngkb6y3mh8r2"]
+[gd_scene load_steps=51 format=4 uid="uid://dngkb6y3mh8r2"]
 
+[ext_resource type="Script" uid="uid://b70mtsc2h7dyv" path="res://Scripts/quarto_a.gd" id="1_ad6cl"]
 [ext_resource type="Texture2D" uid="uid://bkeij15exb551" path="res://Assets/Art/2D/Scenary/A4.png" id="1_uerap"]
 [ext_resource type="Texture2D" uid="uid://dty3waq51v5th" path="res://Assets/Art/2D/Scenary/A5.png" id="2_wsm78"]
 [ext_resource type="Texture2D" uid="uid://8x5arho1xb44" path="res://Assets/Art/2D/Scenary/Door1.png" id="3_qal0p"]
@@ -14,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://d4emkvr7xa5dw" path="res://Assets/Art/2D/Scenary/interactables/alarm_clock.png" id="11_h6sy4"]
 [ext_resource type="Texture2D" uid="uid://cvue6te5pixeo" path="res://Assets/Art/2D/Scenary/interactables/bed.png" id="12_blqcl"]
 [ext_resource type="Texture2D" uid="uid://pnx7x5rki2c4" path="res://Assets/Art/2D/Scenary/interactables/wardrobe_side.png" id="13_blqcl"]
+[ext_resource type="Texture2D" uid="uid://dj2vpbf1w4874" path="res://Assets/Art/2D/Scenary/interactables/carpet1.png" id="15_tds77"]
+[ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="17_qb5bs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uerap"]
 texture = ExtResource("7_blqcl")
@@ -383,7 +386,11 @@ sources/4 = SubResource("TileSetAtlasSource_4obcn")
 sources/5 = SubResource("TileSetAtlasSource_f6myu")
 sources/6 = SubResource("TileSetAtlasSource_dj87e")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad6cl"]
+size = Vector2(34, 128)
+
 [node name="Quarto_A" type="Node2D"]
+script = ExtResource("1_ad6cl")
 
 [node name="Blackout" type="TileMapLayer" parent="."]
 scale = Vector2(2.5, 2.5)
@@ -446,5 +453,22 @@ nome = "wardrobe_side"
 offset = Vector2(-4, 24)
 sprite = ExtResource("13_blqcl")
 
+[node name="carpet" type="Area2D" parent="."]
+position = Vector2(16, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="carpet"]
+position = Vector2(8, 0)
+texture = ExtResource("15_tds77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="carpet"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_ad6cl")
+
 [node name="Player" parent="." instance=ExtResource("8_tds77")]
 position = Vector2(496, 280)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("17_qb5bs")]
+visible = false
+
+[connection signal="body_entered" from="carpet" to="." method="_on_carpet_body_entered"]
+[connection signal="body_exited" from="carpet" to="." method="_on_carpet_body_exited"]

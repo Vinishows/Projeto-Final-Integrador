@@ -7,7 +7,9 @@ func _process(delta):
 		print("Louco de pedra")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	player_in_area = true
+	if body.name == "Player":
+		player_in_area = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	player_in_area = false
+	if body.name == "Player":
+		player_in_area = false

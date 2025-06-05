@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dcummfs74gygx"]
+[gd_scene load_steps=50 format=4 uid="uid://dcummfs74gygx"]
 
 [ext_resource type="Texture2D" uid="uid://cscfdctjndshc" path="res://Assets/Art/2D/Scenary/Sprite-0001.jpg" id="1_dvy7q"]
 [ext_resource type="Script" uid="uid://c7o571ra5qfxb" path="res://Scripts/quarto_b.gd" id="1_ta4be"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bl8uw0ybk4fdc" path="res://Assets/Art/2D/Scenary/interactables/thrash.png" id="13_5l5c4"]
 [ext_resource type="Texture2D" uid="uid://bfxpwftfcf5td" path="res://Assets/Art/2D/Scenary/interactables/wardrobe.png" id="13_w7vwl"]
 [ext_resource type="Texture2D" uid="uid://chnpk3pjqpruo" path="res://Assets/Art/2D/Scenary/interactables/big_bed.png" id="14_cs0ja"]
+[ext_resource type="Texture2D" uid="uid://b24bfni7jpr2h" path="res://Assets/Art/2D/Scenary/interactables/carpet2.png" id="16_w7vwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plhou"]
 texture = ExtResource("1_dvy7q")
@@ -439,6 +440,9 @@ sources/4 = SubResource("TileSetAtlasSource_6u6bg")
 sources/5 = SubResource("TileSetAtlasSource_das6p")
 sources/6 = SubResource("TileSetAtlasSource_vc8yg")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs0ja"]
+size = Vector2(32, 112)
+
 [node name="Quarto_b" type="Node2D"]
 script = ExtResource("1_ta4be")
 
@@ -491,12 +495,24 @@ nome = "wardrobe"
 offset = Vector2(0, 47)
 sprite = ExtResource("13_w7vwl")
 
-[node name="Player" parent="." instance=ExtResource("8_w7vwl")]
-position = Vector2(92, 193)
-
 [node name="int_obj4" parent="." instance=ExtResource("11_osd0n")]
 position = Vector2(771, 397)
 scale = Vector2(2.25, 2.17)
 nome = "big_bed"
 offset = Vector2(-35, 0)
 sprite = ExtResource("14_cs0ja")
+
+[node name="carpet" type="Area2D" parent="."]
+position = Vector2(24, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="carpet"]
+texture = ExtResource("16_w7vwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="carpet"]
+shape = SubResource("RectangleShape2D_cs0ja")
+
+[node name="Player" parent="." instance=ExtResource("8_w7vwl")]
+position = Vector2(92, 193)
+
+[connection signal="body_entered" from="carpet" to="." method="_on_carpet_body_entered"]
+[connection signal="body_exited" from="carpet" to="." method="_on_carpet_body_exited"]

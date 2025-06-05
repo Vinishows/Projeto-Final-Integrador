@@ -1,7 +1,6 @@
 extends Node
 
-@export var correct_order: Array[int] = [0, 1, 2] # Exemplo
-@export var player_path: NodePath = "ProtoController"
+@export var correct_order: Array[int] = [0, 1, 2] #[1, 3, 1, 2, 1, 3, 1, 2]
 
 @onready var exit_door = $staircase_exitDoor
 @onready var staircase: Node3D = %staircase
@@ -39,4 +38,4 @@ func fade_and_teleport():
 	
 func _on_exit_interacted():
 	if current_step == correct_order.size():
-		print("Level Completed!")
+		get_tree().change_scene_to_file("res://Scenes/terrace.tscn")

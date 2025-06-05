@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bgg7o5yq6ov0p"]
+[gd_scene load_steps=31 format=3 uid="uid://bgg7o5yq6ov0p"]
 
 [ext_resource type="Script" uid="uid://clr1ymoofwfq0" path="res://Scripts/room_25d.gd" id="1_k21ry"]
 [ext_resource type="PackedScene" uid="uid://cnpjd45rjp6nw" path="res://Assets/Art/3D/2.5D_level/locked_room.glb" id="2_lpdkk"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cihlshcuax8yq" path="res://Assets/Art/3D/2.5D_level/roomTexture.png" id="5_7q3vl"]
 [ext_resource type="Texture2D" uid="uid://by21o4e7qe467" path="res://Assets/Art/3D/corredor/textures/carpet_baseColor.jpeg" id="6_01pyo"]
 [ext_resource type="PackedScene" uid="uid://drr4troyogubr" path="res://Scenes/player_2.5.tscn" id="7_lpdkk"]
+[ext_resource type="PackedScene" uid="uid://bwlkada2pqd6t" path="res://Scenes/lunatic.tscn" id="8_inuia"]
 [ext_resource type="PackedScene" uid="uid://is76bng3vorp" path="res://Scenes/int_obj_3d.tscn" id="8_m5jrc"]
+[ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="10_7q3vl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jmj7"]
 albedo_texture = ExtResource("3_m5jrc")
@@ -60,6 +62,15 @@ albedo_texture = ExtResource("6_01pyo")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ud0fx"]
 size = Vector3(1.10748, 0.117737, 0.435303)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_inuia"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jdwsm"]
+size = Vector3(4.43201, 2.88287, 4.30884)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aj2h2"]
+size = Vector3(4.46751, 2.79797, 4.56421)
 
 [node name="room_25D" type="Node3D"]
 script = ExtResource("1_k21ry")
@@ -155,16 +166,79 @@ size = Vector3(1.12695, 1, 0.503662)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0899353, -0.0255432, 0.282349)
 shape = SubResource("BoxShape3D_ud0fx")
 
-[node name="Player_25" parent="." instance=ExtResource("7_lpdkk")]
-transform = Transform3D(0.677735, 0, 0, 0, 0.677735, 0, 0, 0, 0.677735, 0.0192968, 1.31106, 1.68569)
-
-[node name="int_obj3D" parent="." instance=ExtResource("8_m5jrc")]
+[node name="wardrobe" parent="." instance=ExtResource("8_m5jrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24834, 0.911615, -0.996468)
 nome = "armario"
 offset = Vector3(0, 0.82, 0)
 
+[node name="computador" parent="." instance=ExtResource("8_m5jrc")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 1.46501, 0.917636, 0.237488)
+nome = "computador"
+offset = Vector3(0, 0.82, 0)
+
+[node name="lixo" parent="." instance=ExtResource("8_m5jrc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.74293, 0.883819, 1.75959)
+nome = "lixo"
+offset = Vector3(0, 0.83, 0)
+
+[node name="toilet" parent="." instance=ExtResource("8_m5jrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58138, 0.989797, -1.39053)
+nome = "toilet"
+offset = Vector3(0, 0.83, 0)
+
+[node name="drawer" parent="." instance=ExtResource("8_m5jrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.32605, 0.94494, -1.32042)
+nome = "drawer"
+offset = Vector3(0, 0.83, 0)
+
+[node name="thrash2" parent="." instance=ExtResource("8_m5jrc")]
+transform = Transform3D(0.452653, 0, 0.891687, 0, 1, 0, -0.891687, 0, 0.452653, -5.50797, 0.927891, 1.26941)
+offset = Vector3(0, 0.83, 0)
+
+[node name="int_obj3D" parent="." instance=ExtResource("8_m5jrc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.95158, 0.886463, -0.171122)
+offset = Vector3(0, 0.83, 0)
+
+[node name="lunatic" parent="." instance=ExtResource("8_inuia")]
+transform = Transform3D(0.808172, 0, 0, 0, 0.808172, 0, 0, 0, 0.808172, -0.239367, 1.32739, -0.739528)
+
+[node name="Player_25" parent="." instance=ExtResource("7_lpdkk")]
+transform = Transform3D(0.677735, 0, 0, 0, 0.677735, 0, 0, 0, 0.677735, 0.0192968, 1.31106, 1.68569)
+
+[node name="blocker2" type="CSGBox3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02589, 2.05196, 2.19384)
+size = Vector3(4.43225, 2.86816, 0.132751)
+material = SubResource("StandardMaterial3D_inuia")
+
+[node name="Area3DBloco2" type="Area3D" parent="blocker2"]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blocker2/Area3DBloco2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00216484, 0.0108337, -2.13635)
+shape = SubResource("BoxShape3D_jdwsm")
+
+[node name="blocker1" type="CSGBox3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.408553, 2.05196, 2.19384)
+size = Vector3(4.43225, 2.86816, 0.132751)
+material = SubResource("StandardMaterial3D_inuia")
+
+[node name="Area3DBloco1" type="Area3D" parent="blocker1"]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blocker1/Area3DBloco1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0268478, 0.000549316, -2.29847)
+shape = SubResource("BoxShape3D_aj2h2")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("10_7q3vl")]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="blocker2/Area3DBloco2" to="." method="_on_area_3d_bloco_2_body_entered"]
+[connection signal="body_exited" from="blocker2/Area3DBloco2" to="." method="_on_area_3d_bloco_2_body_exited"]
+[connection signal="body_entered" from="blocker1/Area3DBloco1" to="." method="_on_area_3d_bloco_1_body_entered"]
+[connection signal="body_exited" from="blocker1/Area3DBloco1" to="." method="_on_area_3d_bloco_1_body_exited"]
 
 [editable path="locked_room"]
 [editable path="room"]
