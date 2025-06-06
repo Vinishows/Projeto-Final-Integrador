@@ -5,12 +5,28 @@ extends Node3D
 
 var player_in_area = false
 
+var obj_interacted = []
+
+func _ready() -> void:
+	for obj in get_tree().get_nodes_in_group("objs"):
+		obj.obj_interacted.connect(_on_obj_interacted)
+
 func _process(_delta: float) -> void:
 	var fade = get_node("CanvasLayer")
 	await fade.fade_from_black()
 	if player_in_area and Input.is_action_just_pressed("Interact"):
 		await fade.fade_to_black()
 		get_tree().change_scene_to_file("res://Scenes/andar_2.tscn")
+
+func _on_obj_interacted(nome: String) -> void:
+	if nome not in obj_interacted:
+		if len(obj_interacted) == 1:
+			obj_interacted.clear()
+			obj_interacted.append(nome)
+		else:
+			obj_interacted.append(nome)
+		print(obj_interacted)
+		Dialogic.VAR.set_variable("current_obj", nome)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player_25":

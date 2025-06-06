@@ -4,9 +4,13 @@ extends StaticBody2D
 
 var player_in_area = false
 
+signal obj_interacted(nome: String)
+
+var nome = "crazy"
+
 func _process(delta):
 	if player_in_area and Input.is_action_just_pressed("Interact"):
-		print("Louco de pedra")
+		emit_signal("obj_interacted", nome)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

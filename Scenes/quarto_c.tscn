@@ -519,7 +519,7 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAkAAQABAAJACIAABAoAAQABAAJACIAAAAgAAwAAwAGABkAAAAhAAwAAwAHABkAAAAgAAoAAwAGABkAAFAgAAsAAwAHABkAAFAfAAsAAwAGABkAAEAfAAwAAwAHABkAAEApAAwAAwAIABkAAAApAA0AAwAIABoAAAAYAAwAAwAGABkAAAAZAAwAAwAHABkAAAA=")
 tile_set = SubResource("TileSet_8vpy7")
 
-[node name="int_obj" parent="." instance=ExtResource("9_ljqls")]
+[node name="int_obj" parent="." groups=["objs"] instance=ExtResource("9_ljqls")]
 position = Vector2(280, 200)
 scale = Vector2(2.2, 2.2)
 nome = "open_wardrobe"
@@ -527,7 +527,7 @@ offset = Vector2(0, 41)
 qm_offset = Vector2(0, -15.96)
 sprite = ExtResource("10_fm7xf")
 
-[node name="int_obj2" parent="." instance=ExtResource("9_ljqls")]
+[node name="int_obj2" parent="." groups=["objs"] instance=ExtResource("9_ljqls")]
 position = Vector2(551, 235)
 scale = Vector2(2.2, 2.2)
 nome = "open_drawer"
@@ -535,14 +535,14 @@ offset = Vector2(0, 16)
 qm_offset = Vector2(0, -29.125)
 sprite = ExtResource("11_fm7xf")
 
-[node name="int_obj3" parent="." instance=ExtResource("9_ljqls")]
+[node name="int_obj3" parent="." groups=["objs"] instance=ExtResource("9_ljqls")]
 position = Vector2(448, 448)
 scale = Vector2(2.2, 2.2)
 nome = "couch"
 qm_offset = Vector2(0, 2.365)
 sprite = ExtResource("12_n0xgw")
 
-[node name="int_obj4" parent="." instance=ExtResource("9_ljqls")]
+[node name="int_obj4" parent="." groups=["objs"] instance=ExtResource("9_ljqls")]
 position = Vector2(840, 224)
 scale = Vector2(2.2, 2.2)
 nome = "bookshelf"
@@ -550,7 +550,7 @@ offset = Vector2(0, 26)
 qm_offset = Vector2(0, -29.015)
 sprite = ExtResource("13_ie06a")
 
-[node name="int_obj5" parent="." instance=ExtResource("9_ljqls")]
+[node name="int_obj5" parent="." groups=["objs"] instance=ExtResource("9_ljqls")]
 position = Vector2(453, 94)
 scale = Vector2(2.2, 2.2)
 nome = "pintura"

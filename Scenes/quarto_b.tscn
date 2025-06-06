@@ -471,10 +471,10 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAcAAUABAAMACIAAAAfAAUABAAMACIAABAcAA4ABQAMAAEAAAArAA4AAwAAABwAAFArABAAAwAAABwAAFAqAA8AAwADABwAAFAiAAoAAwAGABkAAAAjAAoAAwAHABkAAAAlAAsAAwAGABkAAFAlAAwAAwAHABkAAFAjAAsAAwAGABkAAEAjAAwAAwAHABkAAEAiAAsAAwAIABkAAAAiAAwAAwAIABoAAAAeAA8AAwAIABkAAFAdAA8AAwAIABoAAFAbAAwAAwAGABkAAAAcAAwAAwAHABkAAAAaAAwAAwAGABkAAAAaAAsAAwAGABkAAAAbAAsAAwAHABkAAAAcABAAAwAGABkAAAAdABAAAwAHABkAAAA=")
 tile_set = SubResource("TileSet_1bvmj")
 
-[node name="Area2D2" parent="." instance=ExtResource("10_x30c3")]
+[node name="Area2D2" parent="." groups=["objs"] instance=ExtResource("10_x30c3")]
 position = Vector2(512, 328)
 
-[node name="int_obj" parent="." instance=ExtResource("11_osd0n")]
+[node name="int_obj" parent="." groups=["objs"] instance=ExtResource("11_osd0n")]
 position = Vector2(317, 210)
 scale = Vector2(2.2, 2.2)
 nome = "drawer"
@@ -482,7 +482,7 @@ offset = Vector2(0, 16)
 qm_offset = Vector2(0, -27.34)
 sprite = ExtResource("12_pcjxi")
 
-[node name="int_obj2" parent="." instance=ExtResource("11_osd0n")]
+[node name="int_obj2" parent="." groups=["objs"] instance=ExtResource("11_osd0n")]
 position = Vector2(672, 232)
 scale = Vector2(2.57, 2.207)
 nome = "thrash"
@@ -490,7 +490,7 @@ offset = Vector2(0, 10)
 qm_offset = Vector2(0, -37.26)
 sprite = ExtResource("13_5l5c4")
 
-[node name="int_obj3" parent="." instance=ExtResource("11_osd0n")]
+[node name="int_obj3" parent="." groups=["objs"] instance=ExtResource("11_osd0n")]
 position = Vector2(784, 184)
 scale = Vector2(2.2, 2.2)
 nome = "wardrobe"
@@ -498,7 +498,7 @@ offset = Vector2(0, 47)
 qm_offset = Vector2(0, -10.145)
 sprite = ExtResource("13_w7vwl")
 
-[node name="int_obj4" parent="." instance=ExtResource("11_osd0n")]
+[node name="int_obj4" parent="." groups=["objs"] instance=ExtResource("11_osd0n")]
 position = Vector2(771, 397)
 scale = Vector2(2.25, 2.17)
 nome = "big_bed"
