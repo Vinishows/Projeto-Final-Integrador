@@ -205,7 +205,6 @@ animations = [{
 
 [node name="int_obj" type="Node2D"]
 script = ExtResource("1_r11gu")
-qm_offset = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

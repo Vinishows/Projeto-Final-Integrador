@@ -51,10 +51,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		qm_sprite.visible = true
 		player_in_range = true
-		print(player_in_range)
 		
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		qm_sprite.visible = false
 		player_in_range = false
-		print(player_in_range)

@@ -448,7 +448,6 @@ position = Vector2(699, 263)
 scale = Vector2(2.21259, 2.25624)
 nome = "bed"
 offset = Vector2(-16, 31)
-qm_offset = Vector2(0, 0)
 sprite = ExtResource("12_blqcl")
 
 [node name="int_obj5" parent="." groups=["objs"] instance=ExtResource("8_wsm78")]

@@ -53,7 +53,6 @@ text = "  Iniciar Jogo  "
 
 [node name="QuitGame" type="Button" parent="CanvasLayer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_wwsa2")

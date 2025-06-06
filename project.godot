@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://Scripts/global.gd"
 
 [dialogic]
 
@@ -27,6 +28,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "dia 7": "res://Dialogs/dia_3.dtl",
+"dia_1": "res://Dialogs/dia_1.dtl",
 "dia_13": "res://Dialogs/dia_13.dtl",
 "dia_after_5": "res://Dialogs/dia_after_5.dtl",
 "dia_unknown": "res://Dialogs/dia_unknown.dtl",
@@ -37,8 +39,8 @@ glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style=""
 variables={
-"dia": 0,
-"obj_interacted": 0
+"current_day": 1,
+"current_obj": ""
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
