@@ -5,6 +5,7 @@ extends Node
 @onready var exit_door = $staircase_exitDoor
 @onready var staircase: Node3D = %staircase
 @onready var floor_structure: CSGCombiner3D = %floor_structure
+@onready var number_2: AnimatedSprite3D = %number_2
 
 @onready var wall2 = get_node("staircase/stairway/wall2")
 @onready var wall3 = get_node("staircase/stairway/wall3")
@@ -25,10 +26,14 @@ func _ready():
 func _on_door_interacted(door_id: int):
 	if door_id == correct_order[current_step]:
 		current_step += 1
+		if len(correct_order) - current_step == 1:
+			number_2.visible = true
+			
 		if current_step == correct_order.size():
 			var fade = get_node("CanvasLayer")
 			await fade.fade_to_black()
 			remove_child(floor_structure)
+			number_2.visible = false
 			staircase.visible = true
 			wall2.disabled = false
 			wall3.disabled = false

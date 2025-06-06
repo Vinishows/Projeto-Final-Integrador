@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://q6j16i8ngkpm"]
+[gd_scene load_steps=40 format=3 uid="uid://q6j16i8ngkpm"]
 
 [ext_resource type="PackedScene" uid="uid://dv1x7rlj4fj77" path="res://Assets/Art/3D/door/door_frame.glb" id="1_1dt2y"]
 [ext_resource type="Texture2D" uid="uid://duxosickcbm5c" path="res://Assets/Art/3D/sky_background/abstract-art-landscape-city-cityscape-textured-painting-city-nights-ii-by-madart-megan-duncanson.jpg" id="1_8a0x4"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://oierteb3jjya" path="res://Scenes/staircase_exit_door.tscn" id="19_4jr0e"]
 [ext_resource type="PackedScene" uid="uid://r5mwr68nvukl" path="res://Scenes/staircase.tscn" id="21_4jr0e"]
 [ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="21_bhui0"]
+[ext_resource type="Texture2D" uid="uid://bmfluua3ovs7g" path="res://Assets/Art/2D/Details-Props/number-2.png" id="23_iuyc7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_n2ni8"]
 panorama = ExtResource("1_8a0x4")
@@ -73,6 +74,70 @@ heightmap_enabled = true
 heightmap_scale = 16.0
 texture_filter = 0
 texture_repeat = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hepyh"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(0, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6on2"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(200, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwde6"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(400, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2wh6"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(600, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0uvk"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(800, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnabi"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(1000, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h7tv"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(1200, 0, 200, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycxvr"]
+atlas = ExtResource("23_iuyc7")
+region = Rect2(1400, 0, 200, 198)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0g3uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hepyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6on2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwde6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2wh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0uvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnabi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h7tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycxvr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Andar_3" type="Node3D"]
 script = ExtResource("1_n2ni8")
@@ -257,5 +322,14 @@ visible = false
 transform = Transform3D(-8.38259e-08, 0, 1.91771, 0, 1.91771, 0, -1.91771, 0, -8.38259e-08, -2.85581, 9.11944, 1.08122)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("21_bhui0")]
+
+[node name="number_2" type="AnimatedSprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.78988, 3.59959, 15.9106)
+visible = false
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_0g3uc")
+autoplay = "default"
+frame_progress = 0.507771
 
 [editable path="staircase"]
