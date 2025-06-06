@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b6xc2jygq8vcu"]
+[gd_scene load_steps=42 format=3 uid="uid://b6xc2jygq8vcu"]
 
 [ext_resource type="Script" uid="uid://dt8wp25r4x1b" path="res://Scripts/player.gd" id="1_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://di2de75agpal6" path="res://Assets/Art/2D/Characters/Protag/down/1.png" id="2_p1odr"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://bnijcm1k6w5t3" path="res://Assets/Art/2D/Characters/Protag/walk/6.png" id="23_ax3m3"]
 [ext_resource type="Texture2D" uid="uid://d0citnn08bt85" path="res://Assets/Art/2D/Characters/Protag/walk/7.png" id="24_3vlem"]
 [ext_resource type="Texture2D" uid="uid://uprtmho42gej" path="res://Assets/Art/2D/Characters/Protag/walk/8.png" id="25_8eeqe"]
+[ext_resource type="AudioStream" uid="uid://cvmtyks0ta6m7" path="res://Assets/Sound/footsteps-on-wood-floor-14735.mp3" id="39_sbwqj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6t5aa"]
 animations = [{
@@ -193,6 +194,7 @@ scale = Vector2(0.484375, 0.8125)
 texture = ExtResource("2_qpa8y")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6t5aa")
 animation = &"walk"
@@ -211,3 +213,8 @@ limit_bottom = 470
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("39_sbwqj")
+volume_db = 15.0
