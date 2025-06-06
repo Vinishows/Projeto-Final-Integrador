@@ -22,17 +22,24 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://Dialogs/character.dch"
+"friend": "res://Dialogs/friend.dch",
+"protagonist": "res://Dialogs/character.dch"
 }
 directories/dtl_directory={
-"open_wardrobe": "res://Dialogs/open_wardrobe.dtl",
-"timeline": "res://Dialogs/timeline.dtl"
+"dia 7": "res://Dialogs/dia_3.dtl",
+"dia_13": "res://Dialogs/dia_13.dtl",
+"dia_after_5": "res://Dialogs/dia_after_5.dtl",
+"dia_unknown": "res://Dialogs/dia_unknown.dtl",
+"open_wardrobe": "res://Dialogs/open_wardrobe.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style=""
-variables={}
+variables={
+"dia": 0,
+"obj_interacted": 0
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
