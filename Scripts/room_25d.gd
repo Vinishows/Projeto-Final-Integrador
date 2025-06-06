@@ -1,9 +1,9 @@
 extends Node3D
 
-var player_in_area = false
 @onready var blocker_2: CSGBox3D = %blocker2
 @onready var blocker_1: CSGBox3D = %blocker1
 
+var player_in_area = false
 
 func _process(_delta: float) -> void:
 	var fade = get_node("CanvasLayer")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqg7lv6nw04n8"]
+[gd_scene load_steps=5 format=3 uid="uid://bqg7lv6nw04n8"]
 
 [ext_resource type="Script" uid="uid://bfr8wshmeolgq" path="res://Scripts/door.gd" id="1_p0e35"]
 [ext_resource type="PackedScene" uid="uid://0mwmesbsyagc" path="res://Assets/Art/3D/door/Untitled.glb" id="2_fahql"]
+[ext_resource type="AudioStream" uid="uid://qyjlth2mivdr" path="res://Assets/Sound/door-opening-353874.mp3" id="3_fahql"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab4ky"]
 size = Vector3(1, 84.4184, 1)
@@ -14,6 +15,11 @@ script = ExtResource("1_p0e35")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(38.0909, 0, 0, 0, 1, 0, 0, 0, 21.7068, 0, 41.7092, 0.508619)
 shape = SubResource("BoxShape3D_ab4ky")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_fahql")
+volume_db = 15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
