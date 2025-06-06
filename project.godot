@@ -27,20 +27,24 @@ directories/dch_directory={
 "protagonist": "res://Dialogs/character.dch"
 }
 directories/dtl_directory={
-"dia 7": "res://Dialogs/dia_3.dtl",
+"dia 7": "res://Dialogs/dia_7.dtl",
 "dia_1": "res://Dialogs/dia_1.dtl",
 "dia_13": "res://Dialogs/dia_13.dtl",
+"dia_3": "res://Dialogs/dia_3.dtl",
 "dia_after_5": "res://Dialogs/dia_after_5.dtl",
 "dia_unknown": "res://Dialogs/dia_unknown.dtl",
 "open_wardrobe": "res://Dialogs/open_wardrobe.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://Dialogs/Style.tres",
+"Style": "res://Dialogs/Style.tres"
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://Dialogs/Style.tres"]
+layout/default_style="res://Dialogs/Style.tres"
 variables={
 "current_day": 1,
-"current_obj": ""
+"current_obj": "\"\""
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -75,6 +79,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+text/input_action="Interact"
 
 [editor_plugins]
 

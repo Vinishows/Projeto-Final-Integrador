@@ -1,10 +1,20 @@
+[wait time="5.0" skippable="true"]
 if {current_obj} == "bed":
-	Um canto de conforto. Há dias que você não troca os lençóis, mas, na situação atual, é impossível ter forças para isso. "Para que a final de contas", você se pergunta
+	Um canto de conforto. Há dias que você não troca os lençóis, mas, na situação atual, é impossível ter forças para isso. "Para que a final de contas", você se pergunta.
+	jump dia_1/
+
 elif {current_obj} == "computer":
-	Você olha notícias do que está ocorrendo no mundo. Não há esperanças, o pânico já se alastrou. Não há sentindo em continuar olhando.
+	Você olha notícias do que está ocorrendo no mundo. Não há esperanças, o pânico já se alastrou. Não há sentido em continuar olhando.
+	jump dia_1/
+
 elif {current_obj} == "clock":
 	As pilhas acabaram há muito tempo, mas você não saía de casa nem mesmo para comprar coisas pequenas. Na situação do mundo, você tem certeza que as pilhas que você comprou pela internet nunca chegariam.
+	jump dia_1/
+
 elif {current_obj} == "lixo":
-	O lixo está acumulado. Não é como se você tivesse muito costume de tirar ele, agora mesmo que não necessidade para tal ato.
+	O lixo está acumulado. Não é como se você tivesse muito costume de tirar ele, agora mesmo que não há necessidade para tal ato.
+	jump dia_1/
+
 elif {current_obj} == "wardrobe_side":
 	Roupas majoritariamente de ficar em casa. Ainda há algumas roupas básicas de quando você ainda saía de casa, algo que já não ocorre há muito tempo.
+	jump dia_1/

@@ -13,7 +13,6 @@ var aux = []
 
 func _ready():
 	_show_day_screen()
-	Dialogic.start_timeline("dia_1")
 
 	for obj in get_tree().get_nodes_in_group("objs"):
 		obj.obj_interacted.connect(_on_obj_interacted)
@@ -50,7 +49,16 @@ func _on_obj_interacted(nome: String) -> void:
 			obj_interacted.append(nome)
 		else:
 			obj_interacted.append(nome)
-		Dialogic.VAR.set_variable("current_obj", nome)
+
+		Dialogic.VAR.set("current_obj", nome)
+		if current_day == 1:
+			Dialogic.start_timeline("dia_1")
+		elif current_day == 2:
+			Dialogic.end_timeline()
+			Dialogic.start_timeline("dia_3")
+		elif current_day == 3:
+			Dialogic.start_timeline("dia_7")
+
 
 	elif nome == "bed" and num_obj_int == 5:
 		if current_day >= 7:
