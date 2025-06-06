@@ -3,7 +3,7 @@ extends Node2D
 @export var fade_path: NodePath = "CanvasLayer"
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
 
-var next_level = true
+var next_level = false
 
 func _ready():
 	canvas_layer.visible = true
@@ -12,14 +12,11 @@ func _ready():
 
 func _on_door_interacted(door_id: int):
 	var fade = get_node("CanvasLayer")
-	var door1 = get_node("door_2D/AnimatedSprite2D")
 	var door2 = get_node("door_2D2/AnimatedSprite2D")
 	var door3 = get_node("door_2D3/AnimatedSprite2D")
 	
 	if door_id == 1:
-		door1.play("door")
-		await fade.fade_to_black()
-		get_tree().change_scene_to_file("res://Scenes/quarto_a.tscn")
+		print("Não tem por que voltar pra dentro")
 	elif door_id == 2:
 		door2.play("door")
 		await fade.fade_to_black()

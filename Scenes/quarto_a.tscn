@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://pnx7x5rki2c4" path="res://Assets/Art/2D/Scenary/interactables/wardrobe_side.png" id="13_blqcl"]
 [ext_resource type="Texture2D" uid="uid://dj2vpbf1w4874" path="res://Assets/Art/2D/Scenary/interactables/carpet1.png" id="15_tds77"]
 [ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="17_qb5bs"]
-[ext_resource type="PackedScene" uid="uid://cst5ddlgh17gr" path="res://Scenes/event_intro.tscn" id="18_b5pxi"]
+[ext_resource type="FontFile" uid="uid://by63x7j2ytbu" path="res://Assets/Fonts/BasheqVintageDemoVersionRegular-ov13x.ttf" id="18_b5pxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uerap"]
 texture = ExtResource("7_blqcl")
@@ -418,40 +418,45 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAASAAgAAwAMABMAAAAVAAcAAwACAB4AAAAWAAsAAwAVACoAAAAhAAgAAwAAABkAABArABEAAwASABkAAAA=")
 tile_set = SubResource("TileSet_2rnt5")
 
-[node name="int_obj" parent="." instance=ExtResource("8_wsm78")]
+[node name="int_obj" parent="." groups=["objs"] instance=ExtResource("8_wsm78")]
 position = Vector2(424, 232)
-scale = Vector2(2.57024, 2.2067)
+scale = Vector2(2.57024, 2.21582)
 nome = "lixo"
 offset = Vector2(0, 13.05)
+qm_offset = Vector2(0, -38.875)
 sprite = ExtResource("10_qal0p")
 
-[node name="int_obj2" parent="." instance=ExtResource("8_wsm78")]
+[node name="int_obj2" parent="." groups=["objs"] instance=ExtResource("8_wsm78")]
 position = Vector2(320, 176)
 scale = Vector2(1.74384, 1.64487)
 nome = "computer"
 offset = Vector2(0, 49.92)
+qm_offset = Vector2(0, -33.035)
 sprite = ExtResource("11_dwld5")
 
-[node name="int_obj3" parent="." instance=ExtResource("8_wsm78")]
+[node name="int_obj3" parent="." groups=["objs"] instance=ExtResource("8_wsm78")]
 position = Vector2(600, 200)
 scale = Vector2(1.55, 1.55)
 nome = "clock"
 offset = Vector2(-2, 48)
+qm_offset = Vector2(0, -18.06)
 sprite = ExtResource("11_h6sy4")
 metadata/_edit_group_ = true
 
-[node name="int_obj4" parent="." instance=ExtResource("8_wsm78")]
+[node name="int_obj4" parent="." groups=["objs"] instance=ExtResource("8_wsm78")]
 position = Vector2(699, 263)
 scale = Vector2(2.21259, 2.25624)
 nome = "bed"
 offset = Vector2(-16, 31)
+qm_offset = Vector2(0, 0)
 sprite = ExtResource("12_blqcl")
 
-[node name="int_obj5" parent="." instance=ExtResource("8_wsm78")]
+[node name="int_obj5" parent="." groups=["objs"] instance=ExtResource("8_wsm78")]
 position = Vector2(856, 248)
 scale = Vector2(2.12, 2.32)
 nome = "wardrobe_side"
 offset = Vector2(-4, 24)
+qm_offset = Vector2(-1.315, -21.47)
 sprite = ExtResource("13_blqcl")
 
 [node name="carpet" type="Area2D" parent="."]
@@ -468,10 +473,62 @@ shape = SubResource("RectangleShape2D_ad6cl")
 [node name="Player" parent="." instance=ExtResource("8_tds77")]
 position = Vector2(496, 280)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("17_qb5bs")]
+[node name="event_starter" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 
-[node name="Event_Intro" parent="." instance=ExtResource("18_b5pxi")]
+[node name="ColorRect" type="ColorRect" parent="event_starter"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="day" type="Label" parent="event_starter"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -48.5
+offset_right = 20.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_b5pxi")
+theme_override_font_sizes/font_size = 96
+
+[node name="Label" type="Label" parent="event_starter"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("18_b5pxi")
+theme_override_font_sizes/font_size = 36
+text = "W/A/S/D para andar"
+
+[node name="Label2" type="Label" parent="event_starter"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("18_b5pxi")
+theme_override_font_sizes/font_size = 36
+text = "E para Interagir/Continuar"
+
+[node name="fade" parent="." instance=ExtResource("17_qb5bs")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="body_entered" from="carpet" to="." method="_on_carpet_body_entered"]
 [connection signal="body_exited" from="carpet" to="." method="_on_carpet_body_exited"]

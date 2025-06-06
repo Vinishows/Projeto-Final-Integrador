@@ -2,11 +2,11 @@ extends CharacterBody3D
 
 @onready var sprite: AnimatedSprite3D = %sprite
 
-@export var jump_velocity : float = 4.5
+@export var jump_velocity : float = 0
+@export var SPEED : int = 5
 
 var last_direction: String = "right"
 
-const SPEED = 5.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

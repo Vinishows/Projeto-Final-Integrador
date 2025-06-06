@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cst5ddlgh17gr"]
 
 [ext_resource type="FontFile" uid="uid://mxu3h68kfrpe" path="res://Assets/Fonts/Beholden-Medium.ttf" id="1_dgkok"]
-[ext_resource type="Script" uid="uid://dntjkrjsug2x4" path="res://Scripts/event_intro.gd" id="1_fepwv"]
+[ext_resource type="Script" path="res://Scripts/event_intro.gd" id="1_fepwv"]
 
 [node name="Event_Intro" type="Control"]
 layout_mode = 3

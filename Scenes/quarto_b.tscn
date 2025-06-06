@@ -479,6 +479,7 @@ position = Vector2(317, 210)
 scale = Vector2(2.2, 2.2)
 nome = "drawer"
 offset = Vector2(0, 16)
+qm_offset = Vector2(0, -27.34)
 sprite = ExtResource("12_pcjxi")
 
 [node name="int_obj2" parent="." instance=ExtResource("11_osd0n")]
@@ -486,6 +487,7 @@ position = Vector2(672, 232)
 scale = Vector2(2.57, 2.207)
 nome = "thrash"
 offset = Vector2(0, 10)
+qm_offset = Vector2(0, -37.26)
 sprite = ExtResource("13_5l5c4")
 
 [node name="int_obj3" parent="." instance=ExtResource("11_osd0n")]
@@ -493,6 +495,7 @@ position = Vector2(784, 184)
 scale = Vector2(2.2, 2.2)
 nome = "wardrobe"
 offset = Vector2(0, 47)
+qm_offset = Vector2(0, -10.145)
 sprite = ExtResource("13_w7vwl")
 
 [node name="int_obj4" parent="." instance=ExtResource("11_osd0n")]
@@ -500,6 +503,7 @@ position = Vector2(771, 397)
 scale = Vector2(2.25, 2.17)
 nome = "big_bed"
 offset = Vector2(-35, 0)
+qm_offset = Vector2(-2.05, -11.005)
 sprite = ExtResource("14_cs0ja")
 
 [node name="carpet" type="Area2D" parent="."]

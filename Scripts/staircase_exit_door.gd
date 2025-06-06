@@ -1,4 +1,4 @@
-extends Area3D
+extends StaticBody3D
 
 signal exit_interacted
 
@@ -9,12 +9,12 @@ func _process(_delta):
 		print(Input.is_action_just_pressed("Interact"))
 		exit_interacted.emit()
 
-func _on_body_entered(body):
+func _on_area_3d_body_entered(body):
 	print(body.name)
 	if body.name == "ProtoController":
 		player_in_area = true
 
-func _on_body_exited(body):
+func _on_area_3d_body_exited(body):
 	print(body.name)
 	if body.name == "ProtoController":
 		player_in_area = false

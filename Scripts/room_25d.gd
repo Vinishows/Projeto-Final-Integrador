@@ -13,11 +13,11 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_file("res://Scenes/andar_2.tscn")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name == "Player_25":
 		player_in_area = true
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
+	if body.name == "Player_25":
 		player_in_area = false
 
 func _on_area_3d_bloco_1_body_entered(body: Node3D) -> void:

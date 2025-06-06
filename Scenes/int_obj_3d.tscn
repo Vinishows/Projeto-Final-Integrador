@@ -197,7 +197,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 15.0
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ncgtt"]

@@ -84,11 +84,11 @@ environment = SubResource("Environment_6m7dr")
 transform = Transform3D(-0.265473, 0.950047, -0.164121, -0.712213, -0.0785111, 0.697559, 0.649828, 0.302072, 0.697478, -2.59347, 8.73942, 17.6799)
 shadow_enabled = true
 
-[node name="door_frame3" parent="." instance=ExtResource("1_1dt2y")]
-transform = Transform3D(0.0449028, 0, 0, 0, 0.046, 0, 0, 0, 0.046, -8.00651, 0.512097, 8.07275)
+[node name="door_frame2" parent="." instance=ExtResource("1_1dt2y")]
+transform = Transform3D(0.0443691, 0, 0, 0, 0.046, 0, 0, 0, 0.046, -3.69268, 0.512097, 8.07275)
 
-[node name="door3" parent="." groups=["doors"] instance=ExtResource("4_n2ni8")]
-transform = Transform3D(0.0494679, 0, 0, 0, 0.0494679, 0, 0, 0, 0.0494679, -7.95293, 0.283809, 8.05341)
+[node name="door2" parent="." groups=["doors"] instance=ExtResource("4_n2ni8")]
+transform = Transform3D(0.0494679, 0, 0, 0, 0.0494679, 0, 0, 0, 0.0494679, -3.64063, 0.283809, 8.05341)
 door_id = 2
 
 [node name="floor_structure" type="CSGCombiner3D" parent="."]
@@ -96,17 +96,18 @@ unique_name_in_owner = true
 transform = Transform3D(1.94134, 0, 0, 0, 1.94134, 0, 0, 0, 1.94134, 0.0220727, 0.283809, 1.57083)
 use_collision = true
 
+[node name="door_frame3" parent="floor_structure" instance=ExtResource("1_1dt2y")]
+transform = Transform3D(0.0231298, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -4.13559, 0.117593, 3.34919)
+
+[node name="door3" parent="floor_structure" groups=["doors"] instance=ExtResource("4_n2ni8")]
+transform = Transform3D(0.0254813, 0, 0, 0, 0.0254813, 0, 0, 0, 0.0254813, -4.10799, 0, 3.33923)
+door_id = 3
+
 [node name="door_frame" parent="floor_structure" instance=ExtResource("1_1dt2y")]
 transform = Transform3D(0.023695, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, 0.291899, 0.117593, 3.34919)
 
-[node name="door_frame2" parent="floor_structure" instance=ExtResource("1_1dt2y")]
-transform = Transform3D(0.0228549, 0, 0, 0, 0.023695, 0, 0, 0, 0.023695, -1.9135, 0.117593, 3.34919)
-
 [node name="door" parent="floor_structure" groups=["doors"] instance=ExtResource("4_n2ni8")]
 transform = Transform3D(0.0254813, 0, 0, 0, 0.0254813, 0, 0, 0, 0.0254813, 0.328053, 0, 3.33923)
-
-[node name="door2" parent="floor_structure" groups=["doors"] instance=ExtResource("4_n2ni8")]
-transform = Transform3D(0.0254813, 0, 0, 0, 0.0254813, 0, 0, 0, 0.0254813, -1.88669, 0, 3.33923)
 door_id = 1
 
 [node name="wall2" type="CSGBox3D" parent="floor_structure"]
@@ -245,13 +246,16 @@ transform = Transform3D(-4.51976e-08, 0, -1.034, 0, 1.034, 0, 1.034, 0, -4.51976
 
 [node name="ProtoController" parent="." instance=ExtResource("2_ye382")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.90445, 0.67897, 10.0604)
+can_jump = false
 
 [node name="staircase" parent="." instance=ExtResource("21_4jr0e")]
 unique_name_in_owner = true
-transform = Transform3D(1.85221, 0, 0, 0, 1.85221, 0, 0, 0, 1.85221, -10.1942, 2.26094, 4.38049)
+transform = Transform3D(1.85221, 0, 0, 0, 1.85221, 0, 0, 0, 1.85221, -5.95091, 2.26094, 4.38049)
 visible = false
 
 [node name="staircase_exitDoor" parent="." instance=ExtResource("19_4jr0e")]
-transform = Transform3D(-8.38259e-08, 0, 1.91771, 0, 1.91771, 0, -1.91771, 0, -8.38259e-08, -7.0991, 9.11944, 1.08122)
+transform = Transform3D(-8.38259e-08, 0, 1.91771, 0, 1.91771, 0, -1.91771, 0, -8.38259e-08, -2.85581, 9.11944, 1.08122)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("21_bhui0")]
+
+[editable path="staircase"]

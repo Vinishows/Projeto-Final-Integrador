@@ -1,20 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://oierteb3jjya"]
+[gd_scene load_steps=5 format=3 uid="uid://oierteb3jjya"]
 
 [ext_resource type="Script" uid="uid://b7r3ycp1pcere" path="res://Scripts/staircase_exit_door.gd" id="1_yfxjh"]
 [ext_resource type="PackedScene" uid="uid://s2vayt37sxo0" path="res://Assets/Art/3D/wall_details/stairway_door.glb" id="2_cqeoe"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yfxjh"]
+size = Vector3(1.2359, 2.06354, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvm0p"]
 size = Vector3(0.966919, 1.64355, 0.678162)
 
-[node name="staircase_exitDoor" type="Area3D"]
+[node name="staircase_exitDoor" type="StaticBody3D"]
 transform = Transform3D(1.034, 0, 0, 0, 1.034, 0, 0, 0, 1.034, 0, 0, 0)
 script = ExtResource("1_yfxjh")
 
 [node name="stairway_door" parent="." instance=ExtResource("2_cqeoe")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.152641, 0.00228883, 1.03177, 0)
+shape = SubResource("BoxShape3D_yfxjh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625612, 1.15716, -0.265961)
 shape = SubResource("BoxShape3D_wvm0p")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

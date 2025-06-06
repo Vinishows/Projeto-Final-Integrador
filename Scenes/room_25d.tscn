@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bgg7o5yq6ov0p"]
+[gd_scene load_steps=32 format=3 uid="uid://bgg7o5yq6ov0p"]
 
 [ext_resource type="Script" uid="uid://clr1ymoofwfq0" path="res://Scripts/room_25d.gd" id="1_k21ry"]
 [ext_resource type="PackedScene" uid="uid://cnpjd45rjp6nw" path="res://Assets/Art/3D/2.5D_level/locked_room.glb" id="2_lpdkk"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bwlkada2pqd6t" path="res://Scenes/lunatic.tscn" id="8_inuia"]
 [ext_resource type="PackedScene" uid="uid://is76bng3vorp" path="res://Scenes/int_obj_3d.tscn" id="8_m5jrc"]
 [ext_resource type="PackedScene" uid="uid://dp4g7hpkpcgj" path="res://Scenes/fade_black.tscn" id="10_7q3vl"]
+
+[sub_resource type="Environment" id="Environment_7q3vl"]
+background_mode = 1
+ambient_light_source = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jmj7"]
 albedo_texture = ExtResource("3_m5jrc")
@@ -74,6 +78,12 @@ size = Vector3(4.46751, 2.79797, 4.56421)
 
 [node name="room_25D" type="Node3D"]
 script = ExtResource("1_k21ry")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0145381, 0.999894, 0, -0.999894, 0.0145381, -1.8206, 5.66334, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7q3vl")
 
 [node name="locked_room" parent="." instance=ExtResource("2_lpdkk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88394, 0, -0.102899)
@@ -203,7 +213,8 @@ offset = Vector3(0, 0.83, 0)
 transform = Transform3D(0.808172, 0, 0, 0, 0.808172, 0, 0, 0, 0.808172, -0.239367, 1.32739, -0.739528)
 
 [node name="Player_25" parent="." instance=ExtResource("7_lpdkk")]
-transform = Transform3D(0.677735, 0, 0, 0, 0.677735, 0, 0, 0, 0.677735, 0.0192968, 1.31106, 1.68569)
+transform = Transform3D(0.677735, 0, 0, 0, 0.677735, 0, 0, 0, 0.677735, 0.0192968, 1.31106, 1.18936)
+SPEED = 2
 
 [node name="blocker2" type="CSGBox3D" parent="."]
 unique_name_in_owner = true
