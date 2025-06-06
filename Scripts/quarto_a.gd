@@ -3,6 +3,7 @@ extends Node2D
 @onready var day: Label = %day
 @onready var event_starter: CanvasLayer = %event_starter
 @onready var fade: CanvasLayer = %fade
+@onready var player: CharacterBody2D = %Player
 
 var go_back = false
 var obj_interacted = []
@@ -10,9 +11,11 @@ var current_day = 1
 var waiting_for_input = true
 var num_obj_int = 0
 var aux = []
+var player_start_position:= Vector2(481.0, 311.0)
 
 func _ready():
 	_show_day_screen()
+	player.global_position = player_start_position
 
 	for obj in get_tree().get_nodes_in_group("objs"):
 		obj.obj_interacted.connect(_on_obj_interacted)
@@ -57,6 +60,7 @@ func _on_obj_interacted(nome: String) -> void:
 			Dialogic.end_timeline()
 			Dialogic.start_timeline("dia_3")
 		elif current_day == 3:
+			Dialogic.end_timeline()
 			Dialogic.start_timeline("dia_7")
 
 
@@ -66,6 +70,7 @@ func _on_obj_interacted(nome: String) -> void:
 			return
 		
 		current_day += 1
+		Dialogic.end_timeline()
 		obj_interacted.clear()
 
 		if current_day <= 7:
@@ -74,7 +79,9 @@ func _on_obj_interacted(nome: String) -> void:
 func _show_day_screen() -> void:
 	day.text = get_day_day_text()
 	event_starter.visible = true
+	player.global_position = player_start_position
 	waiting_for_input = true
+	
 
 func get_day_day_text() -> String:
 	var day_texts = {

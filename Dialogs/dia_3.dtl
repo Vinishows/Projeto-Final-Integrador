@@ -20,6 +20,3 @@ elif {current_obj} == "lixo":
 elif {current_obj} == "wardrobe_side":
 	As roupas de ficar em casa estão ficando sujas aos poucos. Talvez em algum momento você tenha que usar suas roupas de sair
 	jump dia_3/no_repeat
-[signal arg="Final"]
-Não há mais o que fazer. É melhor ir dormir. Será a única coisa que trará conforto.
-- Ir dormir

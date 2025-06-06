@@ -470,7 +470,8 @@ position = Vector2(7, 0)
 shape = SubResource("RectangleShape2D_ad6cl")
 
 [node name="Player" parent="." instance=ExtResource("8_tds77")]
-position = Vector2(496, 280)
+unique_name_in_owner = true
+position = Vector2(481, 311)
 
 [node name="event_starter" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
